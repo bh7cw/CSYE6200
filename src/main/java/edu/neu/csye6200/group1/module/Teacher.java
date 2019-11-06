@@ -1,12 +1,12 @@
-package edu.neu.csye6200.group1;
+package edu.neu.csye6200.group1.module;
 
 import java.util.Date;
 
 public class Teacher extends Person {
-    int tID;
-    int credits;
-    double wage;
-    Date registerDate;
+    private int tID;
+    private int credits;
+    private double wage;
+    private Date registerDate;
 
     public Teacher() {
     }
@@ -50,10 +50,10 @@ public class Teacher extends Person {
                 ", credits=" + credits +
                 ", wage=" + wage +
                 ", registerDate=" + registerDate +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                ", gender=" + gender +
+                ", firstName='" + getFirstName() + '\'' +
+                ", lastName='" + getLastName() + '\'' +
+                ", age=" + getAge() +
+                ", gender=" + getGender() +
                 '}';
     }
 }

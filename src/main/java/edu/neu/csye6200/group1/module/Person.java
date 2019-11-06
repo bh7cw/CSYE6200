@@ -1,4 +1,4 @@
-package edu.neu.csye6200.group1;
+package edu.neu.csye6200.group1.module;
 
 /**
  * wu.juan
@@ -6,11 +6,11 @@ package edu.neu.csye6200.group1;
  */
 public class Person {
 
-    int id;
-    String firstName;
-    String lastName;
-    int age;
-    int gender;
+    private int id;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private int gender;
 
     public Person() {
 
