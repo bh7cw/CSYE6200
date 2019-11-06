@@ -3,7 +3,7 @@ package edu.neu.csye6200.group1.module;
 import java.util.Date;
 
 public class Teacher extends Person {
-    private int tID;
+    private int teacherID;
     private int credits;
     private double wage;
     private Date registerDate;
@@ -11,12 +11,12 @@ public class Teacher extends Person {
     public Teacher() {
     }
 
-    public int gettID() {
-        return tID;
+    public int getteacherID() {
+        return teacherID;
     }
 
-    public void settID(int tID) {
-        this.tID = tID;
+    public void setteacherID(int teacherID) {
+        this.teacherID = teacherID;
     }
 
     public int getCredits() {
@@ -46,7 +46,7 @@ public class Teacher extends Person {
     @Override
     public String toString() {
         return "Teacher{" +
-                "tID=" + tID +
+                "teacherID=" + teacherID +
                 ", credits=" + credits +
                 ", wage=" + wage +
                 ", registerDate=" + registerDate +
