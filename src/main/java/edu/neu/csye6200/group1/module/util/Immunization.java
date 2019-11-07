@@ -1,4 +1,4 @@
-package edu.neu.csye6200.group1.module;
+package edu.neu.csye6200.group1.module.util;
 
 public class Immunization {
     private boolean skinTest;
