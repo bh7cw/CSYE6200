@@ -6,4 +6,4 @@ student
 teacher
 parent
 classromm
-record
+immunizationRecord

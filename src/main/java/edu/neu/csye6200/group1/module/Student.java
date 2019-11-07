@@ -7,7 +7,7 @@ public class Student extends Person {
     private double gpa;
     private Parent parent;
     private Date registerDate;
-    private Record record;
+    private ImmunizationRecord immunizationRecord;
 
     public int getStuID() {
         return stuID;
@@ -41,12 +41,12 @@ public class Student extends Person {
         this.registerDate = registerDate;
     }
 
-    public Record getRecord() {
-        return record;
+    public ImmunizationRecord getImmunizationRecord() {
+        return immunizationRecord;
     }
 
-    public void setRecord(Record record) {
-        this.record = record;
+    public void setImmunizationRecord(ImmunizationRecord immunizationRecord) {
+        this.immunizationRecord = immunizationRecord;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class Student extends Person {
                 ", gpa=" + gpa +
                 ", parent=" + parent +
                 ", registerDate=" + registerDate +
-                ", record=" + record +
+                ", record=" + immunizationRecord +
                 '}';
     }
 }
