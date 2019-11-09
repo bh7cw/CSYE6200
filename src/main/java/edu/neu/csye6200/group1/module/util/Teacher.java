@@ -11,6 +11,10 @@ public class Teacher extends Person {
     public Teacher() {
     }
 
+    public Teacher(String CSVString){
+
+    }
+
     public int getteacherID() {
         return teacherID;
     }
