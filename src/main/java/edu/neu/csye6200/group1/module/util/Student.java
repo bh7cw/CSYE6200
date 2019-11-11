@@ -9,6 +9,12 @@ public class Student extends Person {
     private Date registerDate;
     private ImmunizationRecord immunizationRecord;
 
+    public Student(String CSVString) {
+    }
+
+    public Student() {
+    }
+
     public int getStuID() {
         return stuID;
     }
