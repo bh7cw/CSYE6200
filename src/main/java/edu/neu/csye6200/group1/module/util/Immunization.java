@@ -2,10 +2,10 @@ package edu.neu.csye6200.group1.module.util;
 
 public class Immunization {
     private boolean skinTest;
-    private int numOfShots;
+    private int numOfDoses;
     private int period;
     private int id;
-    private int daysBetweenShots;
+    private int daysBetweenDoses;
 
     public Immunization() {
 
@@ -19,12 +19,12 @@ public class Immunization {
         this.skinTest = skinTest;
     }
 
-    public int getNumOfShots() {
-        return numOfShots;
+    public int getNumOfDoses() {
+        return numOfDoses;
     }
 
-    public void setNumOfShots(int numOfShots) {
-        this.numOfShots = numOfShots;
+    public void setNumOfDoses(int numOfDoses) {
+        this.numOfDoses = numOfDoses;
     }
 
     public int getPeriod() {
@@ -43,22 +43,22 @@ public class Immunization {
         this.id = id;
     }
 
-    public int getDaysBetweenShots() {
-        return daysBetweenShots;
+    public int getDaysBetweenDoses() {
+        return daysBetweenDoses;
     }
 
-    public void setDaysBetweenShots(int daysBetweenShots) {
-        this.daysBetweenShots = daysBetweenShots;
+    public void setDaysBetweenDoses(int daysBetweenDoses) {
+        this.daysBetweenDoses = daysBetweenDoses;
     }
 
     @Override
     public String toString() {
         return "Immunization{" +
                 "skinTest=" + skinTest +
-                ", numOfShots=" + numOfShots +
+                ", numOfShots=" + numOfDoses +
                 ", period=" + period +
                 ", id=" + id +
-                ", daysBetweenShots=" + daysBetweenShots +
+                ", daysBetweenShots=" + daysBetweenDoses +
                 '}';
     }
 }

@@ -8,5 +8,6 @@ public class ImmunizationRecord {
 
     public ImmunizationRecord() {
         immunizationList = new ArrayList<>();
+
     }
 }
