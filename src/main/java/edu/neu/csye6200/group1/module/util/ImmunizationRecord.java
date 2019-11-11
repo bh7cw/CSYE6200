@@ -11,26 +11,36 @@ import java.util.Date;
  * 004: HB
  * 005: MMR
  * 006: Varicella
+ *
+ * dose00X: the dose of this vaccine
+ * date00X: the inject date
+ * require00X: the student pass the skin test or not
  */
 public class ImmunizationRecord {
     private int stuID;
     private int dose001;
     private Date date001;
+    private boolean require001;
 
     private int dose002;
     private Date date002;
+    private boolean require002;
 
     private int dose003;
     private Date date003;
+    private boolean require003;
 
     private int dose004;
     private Date date004;
+    private boolean require004;
 
     private int dose005;
     private Date date005;
+    private boolean require005;
 
     private int dose006;
     private Date date006;
+    private boolean require006;
 
     public int getStuID() {
         return stuID;
@@ -134,5 +144,53 @@ public class ImmunizationRecord {
 
     public void setDate006(Date date006) {
         this.date006 = date006;
+    }
+
+    public boolean isRequire001() {
+        return require001;
+    }
+
+    public void setRequire001(boolean require001) {
+        this.require001 = require001;
+    }
+
+    public boolean isRequire002() {
+        return require002;
+    }
+
+    public void setRequire002(boolean require002) {
+        this.require002 = require002;
+    }
+
+    public boolean isRequire003() {
+        return require003;
+    }
+
+    public void setRequire003(boolean require003) {
+        this.require003 = require003;
+    }
+
+    public boolean isRequire004() {
+        return require004;
+    }
+
+    public void setRequire004(boolean require004) {
+        this.require004 = require004;
+    }
+
+    public boolean isRequire005() {
+        return require005;
+    }
+
+    public void setRequire005(boolean require005) {
+        this.require005 = require005;
+    }
+
+    public boolean isRequire006() {
+        return require006;
+    }
+
+    public void setRequire006(boolean require006) {
+        this.require006 = require006;
     }
 }
