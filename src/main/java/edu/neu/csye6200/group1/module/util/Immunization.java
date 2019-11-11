@@ -1,22 +1,30 @@
 package edu.neu.csye6200.group1.module.util;
 
-public class Immunization {
-    private boolean skinTest;
+import java.util.Arrays;
+
+public abstract class Immunization {
+//    private boolean skinTestResult;
+//    private boolean skinTestRequired;
     private int numOfDoses;
-    private int period;
+    private int validMonth;
     private int id;
-    private int daysBetweenDoses;
+    private String name;
+    private String description;
+    private int doseNum;
+    private int[] daysBetweenDoses;
 
-    public Immunization() {
+    public Immunization(){
 
     }
 
-    public boolean isSkinTest() {
-        return skinTest;
-    }
-
-    public void setSkinTest(boolean skinTest) {
-        this.skinTest = skinTest;
+    public Immunization(int numOfDoses, int validMonth, int id, String name, String description, int doseNum, int[] daysBetweenDoses) {
+        this.numOfDoses = numOfDoses;
+        this.validMonth = validMonth;
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.doseNum = doseNum;
+        this.daysBetweenDoses = daysBetweenDoses;
     }
 
     public int getNumOfDoses() {
@@ -27,12 +35,12 @@ public class Immunization {
         this.numOfDoses = numOfDoses;
     }
 
-    public int getPeriod() {
-        return period;
+    public int getValidMonth() {
+        return validMonth;
     }
 
-    public void setPeriod(int period) {
-        this.period = period;
+    public void setValidMonth(int validMonth) {
+        this.validMonth = validMonth;
     }
 
     public int getId() {
@@ -43,22 +51,50 @@ public class Immunization {
         this.id = id;
     }
 
-    public int getDaysBetweenDoses() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getDoseNum() {
+        return doseNum;
+    }
+
+    public void setDoseNum(int doseNum) {
+        this.doseNum = doseNum;
+    }
+
+    public int[] getDaysBetweenDoses() {
         return daysBetweenDoses;
     }
 
-    public void setDaysBetweenDoses(int daysBetweenDoses) {
+    public void setDaysBetweenDoses(int[] daysBetweenDoses) {
         this.daysBetweenDoses = daysBetweenDoses;
     }
 
     @Override
     public String toString() {
         return "Immunization{" +
-                "skinTest=" + skinTest +
-                ", numOfShots=" + numOfDoses +
-                ", period=" + period +
+                "numOfDoses=" + numOfDoses +
+                ", validMonth=" + validMonth +
                 ", id=" + id +
-                ", daysBetweenShots=" + daysBetweenDoses +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", doseNum=" + doseNum +
+                ", daysBetweenDoses=" + Arrays.toString(daysBetweenDoses) +
                 '}';
     }
+
+    public abstract boolean isValidate();
 }
