@@ -1,3 +1,4 @@
+![kindergarten](https://www.spsd.sk.ca/Schools/elementaryprograms/kindergarten/PublishingImages/Kindergarten%202017.jpg)
 # Day-Care
 CSYE 6200 - group 1
 
