@@ -5,9 +5,18 @@ import java.util.List;
 public class Group {
     private Teacher teacher;
     private List<Student> studentList;
-    int[] ageRange = new int[2];
+    private int[] ageRange = new int[2];
+    private int groupId;
 
     public Group() {
+    }
+
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
     }
 
     public Teacher getTeacher() {
