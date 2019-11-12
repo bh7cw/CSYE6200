@@ -11,13 +11,13 @@ import java.util.Date;
  * 004: HB
  * 005: MMR
  * 006: Varicella
- *
- * dose00X: the dose of this vaccine
- * date00X: the inject date
+ * dose00X: dose number finished of corresponding vaccine
+ * date00X: the latest inject date of corresponding vaccine
  * require00X: the student pass the skin test or not
  */
 public class ImmunizationRecord {
     private int stuID;
+
     private int dose001;
     private Date date001;
     private boolean require001;

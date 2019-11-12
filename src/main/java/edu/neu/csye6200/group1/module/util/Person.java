@@ -1,20 +1,25 @@
 package edu.neu.csye6200.group1.module.util;
 
+import java.util.Date;
+
 /**
  * wu.juan
  * Person class
  */
 public class Person {
-
+    /**
+     * @Param
+     * id: Person's ID
+     * firstName: Person's first name
+     * lastName: Person's last name
+     * birthDate: Person's birth date
+     * gender: Person's gender
+     */
     private int id;
     private String firstName;
     private String lastName;
-    private int age;
+    private Date birthDate;
     private int gender;
-
-    public Person() {
-
-    }
 
     public int getId() {
         return id;
@@ -40,12 +45,12 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public int getAge() {
-        return age;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public int getGender() {

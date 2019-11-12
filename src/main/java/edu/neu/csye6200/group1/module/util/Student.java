@@ -3,24 +3,27 @@ package edu.neu.csye6200.group1.module.util;
 import java.util.Date;
 
 public class Student extends Person {
-    private int stuID;
+    /**
+     * @Param
+     * studentId: Student's ID
+     * gpa: Student's GPA
+     * parent: Student's parent
+     * registerDate: Student's registrar date
+     * immunizationRecord: Student's immunization record
+     */
+    private int studentId;
     private double gpa;
     private Parent parent;
     private Date registerDate;
+
     private ImmunizationRecord immunizationRecord;
 
-    public Student(String CSVString) {
+    public int getStudentId() {
+        return studentId;
     }
 
-    public Student() {
-    }
-
-    public int getStuID() {
-        return stuID;
-    }
-
-    public void setStuID(int stuID) {
-        this.stuID = stuID;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
     public double getGpa() {
@@ -58,15 +61,12 @@ public class Student extends Person {
     @Override
     public String toString() {
         return "Student{" +
-                "stuID=" + stuID +
-                ", first name=" + getFirstName() +
-                ", last name=" + getLastName() +
-                ", gender=" + getGender() +
-                ", age=" + getAge() +
+                "studentId=" + studentId +
                 ", gpa=" + gpa +
                 ", parent=" + parent +
                 ", registerDate=" + registerDate +
-                ", record=" + immunizationRecord +
+                ", birthDate=" + super.getBirthDate() +
+                ", immunizationRecord=" + immunizationRecord +
                 '}';
     }
 }

@@ -1,6 +1,11 @@
 package edu.neu.csye6200.group1.module.util;
 
 public class Parent extends Person {
+    /**
+     * @Param
+     * phone: Parent's phone number
+     * address: Parent's home address
+     */
     private String phone;
     private String address;
 
@@ -29,7 +34,6 @@ public class Parent extends Person {
         return "Parent{" +
                 "firstName='" + getFirstName() + '\'' +
                 ", lastName='" + getLastName() + '\'' +
-                ", age=" + getAge() +
                 ", gender=" + getGender() +
                 ", address=" + address +
                 ", phone=" + phone+
