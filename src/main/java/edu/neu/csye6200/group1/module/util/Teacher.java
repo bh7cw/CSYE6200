@@ -62,10 +62,6 @@ public class Teacher extends Person {
                 ", credits=" + credits +
                 ", wage=" + wage +
                 ", registerDate=" + registerDate +
-                ", firstName='" + getFirstName() + '\'' +
-                ", lastName='" + getLastName() + '\'' +
-                ", age=" + getAge() +
-                ", gender=" + getGender() +
                 '}';
     }
 }

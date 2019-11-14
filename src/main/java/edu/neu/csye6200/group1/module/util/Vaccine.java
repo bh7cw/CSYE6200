@@ -3,10 +3,8 @@ package edu.neu.csye6200.group1.module.util;
 import java.util.Arrays;
 
 public abstract class Vaccine {
-//    private boolean skinTestResult;
-//    private boolean skinTestRequired;
     /**
-     * Immunization
+     * Vaccine
      * @Param
      * id: Vaccine Id
      * name: Vaccine Name

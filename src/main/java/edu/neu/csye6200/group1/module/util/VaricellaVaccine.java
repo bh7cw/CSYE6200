@@ -1,8 +1,25 @@
 package edu.neu.csye6200.group1.module.util;
 
+
+/**
+ * VaricellaVaccine
+ * @Param
+ * id: Vaccine Id
+ * name: Varicella
+ * totalDose: 1
+ * validMonth: 6 months
+ * daysBetweenDoses: null
+ * description: Other details of vaccine
+ * isRequiredST: true
+ */
+
 public class VaricellaVaccine extends Vaccine {
-    VaricellaVaccine(){
+    public VaricellaVaccine(){
         super();
-        super.setIsRequiredST(false);
+        super.setIsRequiredST(true);
+        super.setName("Varicella");
+        super.setDescription("This is a Varicella vaccine.");
+        super.setTotalDose(1);
+        super.setValidMonth(6);
     }
 }
