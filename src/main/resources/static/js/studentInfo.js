@@ -1,11 +1,11 @@
 $(function () {
     //1.初始化Table
-        var oTable = new TableInit();
-        oTable.Init();
+    var oTable = new TableInit();
+    oTable.Init();
 
-        //2.初始化Button的点击事件
-        var oButtonInit = new ButtonInit();
-        oButtonInit.Init();
+    //2.初始化Button的点击事件
+    var oButtonInit = new ButtonInit();
+    oButtonInit.Init();
 
 });
 
@@ -14,13 +14,13 @@ var TableInit = function () {
     //初始化Table
     oTableInit.Init = function () {
         $('#stuInformation').bootstrapTable({
-            url: '',         //请求后台的URL（*）
+            url: 'https://www.fastmock.site/mock/da5a115445306fa7ff82be1eebbf20eb/integral/vaccine',         //moc url // （*）
             method: 'get',                      //请求方式（*）
             toolbar: '#toolbar',                //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
-            cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            cache: true,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
             pagination: true,                   //是否显示分页（*）
-            sortable:  false,                     //是否启用排序
+            sortable: true,                     //是否启用排序
             sortOrder: "ASC",                   //排序方式
             queryParams: oTableInit.queryParams,//传递参数（*）
             sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
@@ -32,7 +32,7 @@ var TableInit = function () {
             showColumns: true,                  //是否显示所有的列
             showRefresh: true,                  //是否显示刷新按钮
             minimumCountColumns: 2,             //最少允许的列数
-            clickToSelect:false,                //是否启用点击选中行
+            clickToSelect: false,                //是否启用点击选中行
             // height: 680,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
             uniqueId: "num",                     //每一行的唯一标识，一般为主键列
             showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
@@ -41,26 +41,27 @@ var TableInit = function () {
             columns: [{
                 field: 'name',
                 title: 'name',
-            },{
-                field:"id",
-                title:"student id"
-            },{
+            }, {
+                field: "id",
+                title: "student id"
+            }, {
                 field: 'date',
-                title: 'birth date',
-                formatter:function(value,row){
+                title: 'register date',
+                formatter: function (value, row) {
                     return new Date(value).toLocaleDateString().replace(/\//g, "-") + " " + new Date(value).toTimeString().substr(0, 8);
                 },
                 width: '100px'
-            },{
+
+            }, {
                 field: 'parents',
                 title: 'parents',
-            },{
-                field:'vaccine',
-                title:'vaccine',
-                formatter:function (value) {
-                    return " <button onclick=\'vaccineInfo(" + value + ")\' type='button' class='btn-default btn'>detail</button>"
+            }, {
+                field: 'vaccine',
+                title: 'vaccine',
+                formatter: function (value) {
+                    return " <button onclick=\'vaccineInfo(" + value + ")\' type='button' class='btn-default btn text-center' style='background-color: #6f42c1;color: white'>detail</button>"
                 },
-                width: '50px'
+
             }]
         });
     };
