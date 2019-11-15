@@ -4,7 +4,7 @@ var TableInit = function () {
     //初始化Table
     oTableInit.Init = function () {
         $('#stuInformation').bootstrapTable({
-            url: '',         //请求后台的URL（*）
+            url: 'https://www.fastmock.site/mock/da5a115445306fa7ff82be1eebbf20eb/integral/vaccine',         //请求后台的URL（*）
             method: 'get',                      //请求方式（*）
             toolbar: '#toolbar',                //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
