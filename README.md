@@ -13,4 +13,7 @@ tips: \
 peson.. and other class in until package\
 sql in mapper package\
 controller in controller package\
-service in service package
+service in service package\
+
+ API\
+get all vaccine record: localhost:9090/vaccineRecord

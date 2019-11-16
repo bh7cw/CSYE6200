@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    username: root
+    password: wujun971016
+    url: jdbc:mysql://127.0.0.1:3306/daycare?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 9090
