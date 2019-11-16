@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class TestController {
@@ -17,8 +19,13 @@ public class TestController {
 
     @ResponseBody
     @GetMapping(value="/vaccineRecord")
-    public ArrayList<ImmunizationRecord> getAllRecord(){
-//        System.out.println("1111");
-        return testService.getAllRecord();
+    public Map getAllRecord(){
+
+        ArrayList<ImmunizationRecord> allRecord = testService.getAllRecord();
+        Map<String,Object> map= new HashMap<>();
+        map.put("total",allRecord.size());
+        map.put("rows",allRecord);
+        return map;
+
     }
 }
