@@ -12,6 +12,6 @@ import java.util.ArrayList;
 @Mapper
 public interface ImmunizationRecordMapper {
 
-    @Select("select * from records")
+    @Select("select * from records ")
     public ArrayList<ImmunizationRecord> getAllRecord();
 }

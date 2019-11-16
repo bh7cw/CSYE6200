@@ -15,6 +15,7 @@ public class Student extends Person {
     private double gpa;
     private Parent parent;
     private Date registerDate;
+    private int month;
 
     private ImmunizationRecord immunizationRecord;
 
@@ -56,6 +57,14 @@ public class Student extends Person {
 
     public void setImmunizationRecord(ImmunizationRecord immunizationRecord) {
         this.immunizationRecord = immunizationRecord;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
     }
 
     @Override

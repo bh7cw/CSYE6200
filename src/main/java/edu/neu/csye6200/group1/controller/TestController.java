@@ -18,7 +18,7 @@ public class TestController {
     TestService testService;
 
     @ResponseBody
-    @GetMapping(value="/vaccineRecord")
+    @GetMapping(value="/vaccineRecord22")
     public Map getAllRecord(){
 
         ArrayList<ImmunizationRecord> allRecord = testService.getAllRecord();
