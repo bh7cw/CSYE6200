@@ -34,53 +34,67 @@ var TableInit = function () {
             minimumCountColumns: 2,             //最少允许的列数
             clickToSelect: false,                //是否启用点击选中行
             // height: 680,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
-            uniqueId: "stuID",                     //每一行的唯一标识，一般为主键列
+            uniqueId: "num",                     //每一行的唯一标识，一般为主键列
             showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
             cardView: false,                    //是否显示详细视图
             detailView: false,                   //是否显示父子表
             columns: [{
-                field: "stuID",
-                title: "student id"
+                field: 'stuID',
+                title: "ID"
             }, {
-                filed: "dose001",
-                title: "number of Hib"
+                field: 'dose001',
+                title: "Hib"
             }, {
                 field: 'date001',
-                title: 'inject date',
+                title: 'Inject Date',
                 formatter: function (value, row) {
-                    return new Date(value).toLocaleDateString().replace(/\//g, "-") + " " + new Date(value).toTimeString().substr(0, 8);
+                    return new Date(value).toLocaleDateString().replace(/\//g, "-");
                 }
             },{
-                filed: "dose002",
-                title: "number of DTaP"
+                field: 'dose002',
+                title: "DTaP"
             }, {
                 field: 'date002',
-                title: 'inject date',
+                title: 'Inject Date',
                 formatter: function (value, row) {
-                    return new Date(value).toLocaleDateString().replace(/\//g, "-") + " " + new Date(value).toTimeString().substr(0, 8);
+                    return new Date(value).toLocaleDateString().replace(/\//g, "-") ;
                 }
             },{
-                filed: "dose003",
-                title: "number of Polio"
+                field: 'dose003',
+                title: "HapB"
             }, {
                 field: 'date003',
-                title: 'inject date',
+                title: 'Inject Date',
                 formatter: function (value, row) {
-                    return new Date(value).toLocaleDateString().replace(/\//g, "-") + " " + new Date(value).toTimeString().substr(0, 8);
+                    return new Date(value).toLocaleDateString().replace(/\//g, "-");
                 }
-                // width: '100px'
-
-            // }
-            // , {
-            //     field: 'parents',
-            //     title: 'parents',
-            // }, {
-            //     field: 'vaccine',
-            //     title: 'vaccine',
-            //     formatter: function (value) {
-            //         return " <button onclick=\'vaccineInfo(" + value + ")\' type='button' class='btn-default btn text-center' style='background-color: #6f42c1;color: white'>detail</button>"
-            //     },
-
+            },{
+                field: 'dose004',
+                title: "Polio"
+            },{
+                field: 'date004',
+                title: 'Inject Date',
+                formatter: function (value, row) {
+                    return new Date(value).toLocaleDateString().replace(/\//g, "-");
+                }
+            },{
+                field: 'dose005',
+                title: "MMR"
+            },{
+                field: 'date005',
+                title: 'Inject Date',
+                formatter: function (value, row) {
+                    return new Date(value).toLocaleDateString().replace(/\//g, "-");
+                }
+            },{
+                field: 'dose006',
+                title: "Varicella"
+            },{
+                field: 'date006',
+                title: 'Inject Date',
+                formatter: function (value, row) {
+                    return new Date(value).toLocaleDateString().replace(/\//g, "-");
+                }
             }]
         });
     };
@@ -90,7 +104,7 @@ var TableInit = function () {
         var map= {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
             limit: params.limit,   //页面大小
             offset: params.offset,  //页码
-            room: $("#txt_search_room").val(),
+            // room: $("#txt_search_room").val(),
             // statu: $("#txt_search_statu").val()
         };
         return map;
@@ -106,7 +120,7 @@ var ButtonInit = function () {
 
     oInit.Init = function () {
         $("#btn_query").click(function () {
-            $("#stuInformation").bootstrapTable('refresh');
+            $("#vaccineInformation").bootstrapTable('refresh');
         });
     };
 

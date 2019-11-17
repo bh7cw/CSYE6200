@@ -1,16 +1,16 @@
 package edu.neu.csye6200.group1.module.service;
 
-import edu.neu.csye6200.group1.module.mapper.ImmunizationRecordMapper;
-import edu.neu.csye6200.group1.module.util.ImmunizationRecord;
+import edu.neu.csye6200.group1.module.mapper.VaccineRecordMapper;
+import edu.neu.csye6200.group1.module.dao.ImmunizationRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
-public class TestService {
+public class VaccineService {
     @Autowired
-    ImmunizationRecordMapper testMapper;
+    VaccineRecordMapper testMapper;
 
     public ArrayList<ImmunizationRecord> getAllRecord(){
         ArrayList<ImmunizationRecord> record=testMapper.getAllRecord();
