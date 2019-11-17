@@ -1,19 +1,15 @@
 package edu.neu.csye6200.group1.module.dao;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Teacher extends AbstractPerson {
-    /**
-     * @Param
-     * teacherID: Teacher's ID
-     * credits: Don't know
-     * wage: Teacher's wage
-     * registerDate: Teacher's registrar date
-     */
     private int teacherID;
     private int credits;
     private double wage;
     private Date registerDate;
+    List<Integer> studentList=new ArrayList<>();
 
     public Teacher() {
 
