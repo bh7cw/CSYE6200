@@ -13,7 +13,6 @@ public class Student extends AbstractPerson {
     private ImmunizationRecord immunizationRecord;
     private String parentFirstName;
     private String parentLastName;
-    private String parentFullName;
     private String parentPhone;
     private String parentEmail;
     private String parentAddress;
@@ -99,14 +98,6 @@ public class Student extends AbstractPerson {
         this.parentLastName = parentLastName;
     }
 
-    public String getParentFullName() {
-        return parentFullName;
-    }
-
-    public void setParentFullName(String parentFullName) {
-        this.parentFullName = parentFullName;
-    }
-
     public String getParentPhone() {
         return parentPhone;
     }
@@ -152,7 +143,6 @@ public class Student extends AbstractPerson {
                 ", immunizationRecord=" + immunizationRecord +
                 ", parentFirstName='" + parentFirstName + '\'' +
                 ", parentLastName='" + parentLastName + '\'' +
-                ", parentFullName='" + parentFullName + '\'' +
                 ", parentPhone='" + parentPhone + '\'' +
                 ", parentEmail='" + parentEmail + '\'' +
                 ", parentAddress='" + parentAddress + '\'' +
