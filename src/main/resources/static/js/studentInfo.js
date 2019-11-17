@@ -63,9 +63,10 @@ var TableInit = function () {
 
             }, {
                 field: 'id',
-                title: 'vaccine detail',
+                title: 'operation',
                 formatter: function (value) {
-                    return" <button onclick='vaccineDetail("+value+")' type='button' class='btn-default btn'>detail</button>"
+                    return" <button onclick='vaccineDetail("+value+")' type='button' class='btn-default btn'>vaccine</button>" +
+                        " <button onclick=\'deleteStu(" + value + ")\' type='button' class='btn-default btn'>delete</button>"
                 }
             }]
         });
@@ -105,5 +106,23 @@ var  vaccineDetail = function (value) {
     window.location.href="http://39.108.37.4:9090/stuVaccine.html#" + value;
 
 };
+
+
+<!--pass the id of student to back-end -->
+var deleteStu = function () {
+    $.ajax({
+        url:"http:localhost:9090/deleteStu",
+        method:'POST',
+        contentType: "application/json;charset=utf-8",
+        data:JSON.stringify({
+            "num":value
+        }),
+        dataType:"JSON",
+        success:function (result) {
+            alert(result.msg);
+            $("#stuInformation").bootstrapTable('refresh');
+        }
+    })
+}
 
 
