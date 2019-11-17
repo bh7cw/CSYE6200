@@ -58,7 +58,7 @@ var TableInit = function () {
                 field: 'parents',
                 title: 'parents',
             },{
-                field: 'email',
+                field: 'parentEmail',
                 title: 'E-Mail',
 
             }, {
