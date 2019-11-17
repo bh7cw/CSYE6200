@@ -1,13 +1,13 @@
 package edu.neu.csye6200.group1.module.service;
 
+import edu.neu.csye6200.group1.module.extdao.ExtStudent;
 import edu.neu.csye6200.group1.module.mapper.AllStudentInfoMapper;
-import edu.neu.csye6200.group1.module.mapper.ImmunizationRecordMapper;
-import edu.neu.csye6200.group1.module.util.ImmunizationRecord;
-import edu.neu.csye6200.group1.module.util.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 @Service
 public class AllStudentInfoService {
@@ -19,13 +19,13 @@ public class AllStudentInfoService {
         return res;
     }
 
-    public ArrayList<Student> getAllStudentInfo(){
+    public ArrayList<ExtStudent> getAllStudentInfo(){
         Calendar calendar = Calendar.getInstance();
         Date currentDate=calendar.getTime();
         int currYear=calendar.get(Calendar.YEAR);
-        ArrayList<Student> allStudentInfoList=allStudentInfoMapper.getAllStudentInfo(currYear);
-        System.out.print(allStudentInfoList);
-        for (Student s:allStudentInfoList){
+        ArrayList<ExtStudent> allStudentInfoList=allStudentInfoMapper.getAllStudentInfo(currYear);
+        // System.out.print(allStudentInfoList);
+        for (ExtStudent s:allStudentInfoList){
             s.setMonth(calculateMonth(currentDate, s.getBirthDate()));
         }
         return allStudentInfoList;

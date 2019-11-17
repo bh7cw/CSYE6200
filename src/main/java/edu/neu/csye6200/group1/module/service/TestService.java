@@ -1,7 +1,7 @@
 package edu.neu.csye6200.group1.module.service;
 
 import edu.neu.csye6200.group1.module.mapper.ImmunizationRecordMapper;
-import edu.neu.csye6200.group1.module.util.ImmunizationRecord;
+import edu.neu.csye6200.group1.module.dao.ImmunizationRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

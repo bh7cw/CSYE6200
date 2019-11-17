@@ -1,8 +1,8 @@
-package edu.neu.csye6200.group1.module.util;
+package edu.neu.csye6200.group1.module.dao;
 
 import java.util.Date;
 
-public class Teacher extends Person {
+public class Teacher extends AbstractPerson {
     /**
      * @Param
      * teacherID: Teacher's ID
