@@ -43,7 +43,7 @@ var TableInit = function () {
                 title: "ID"
             }, {
                 field: 'dose001',
-                title: "Dose of Hib"
+                title: "Hib"
             }, {
                 field: 'date001',
                 title: 'Inject Date',
@@ -52,7 +52,7 @@ var TableInit = function () {
                 }
             },{
                 field: 'dose002',
-                title: "Dose of DTaP"
+                title: "DTaP"
             }, {
                 field: 'date002',
                 title: 'Inject Date',
@@ -61,7 +61,7 @@ var TableInit = function () {
                 }
             },{
                 field: 'dose003',
-                title: "Dose of Polio"
+                title: "HapB"
             }, {
                 field: 'date003',
                 title: 'Inject Date',
@@ -70,7 +70,31 @@ var TableInit = function () {
                 }
             },{
                 field: 'dose004',
-                title: "number of Polio"
+                title: "Polio"
+            },{
+                field: 'date004',
+                title: 'Inject Date',
+                formatter: function (value, row) {
+                    return new Date(value).toLocaleDateString().replace(/\//g, "-");
+                }
+            },{
+                field: 'dose005',
+                title: "MMR"
+            },{
+                field: 'date005',
+                title: 'Inject Date',
+                formatter: function (value, row) {
+                    return new Date(value).toLocaleDateString().replace(/\//g, "-");
+                }
+            },{
+                field: 'dose006',
+                title: "Varicella"
+            },{
+                field: 'date006',
+                title: 'Inject Date',
+                formatter: function (value, row) {
+                    return new Date(value).toLocaleDateString().replace(/\//g, "-");
+                }
             }]
         });
     };

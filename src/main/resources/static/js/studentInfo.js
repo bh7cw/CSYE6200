@@ -14,7 +14,7 @@ var TableInit = function () {
     //初始化Table
     oTableInit.Init = function () {
         $('#stuInformation').bootstrapTable({
-            url: 'https://www.fastmock.site/mock/da5a115445306fa7ff82be1eebbf20eb/integral/vaccine',         //moc url // （*）
+            url: 'https://localhost:9090/showAllStudentInfo',         //moc url // （*）
             method: 'get',                      //请求方式（*）
             toolbar: '#toolbar',                //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
@@ -26,7 +26,7 @@ var TableInit = function () {
             sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
             pageNumber: 1,                       //初始化加载第一页，默认第一页
             pageSize: 4,                       //每页的记录行数（*）
-            pageList: [4, 16, 24, 32],        //可供选择的每页的行数（*）
+            pageList: [2, 4, 6, 8],        //可供选择的每页的行数（*）
             search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
             strictSearch: true,
             showColumns: true,                  //是否显示所有的列
@@ -45,23 +45,28 @@ var TableInit = function () {
                 field: "id",
                 title: "student id"
             }, {
+                field: "age",
+                title: "Month"
+            },{
                 field: 'date',
                 title: 'register date',
                 formatter: function (value, row) {
-                    return new Date(value).toLocaleDateString().replace(/\//g, "-") + " " + new Date(value).toTimeString().substr(0, 8);
-                },
-                width: '100px'
+                    return new Date(value).toLocaleDateString().replace(/\//g, "-") ;
+                }
 
             }, {
                 field: 'parents',
                 title: 'parents',
-            }, {
-                field: 'vaccine',
-                title: 'vaccine',
-                formatter: function (value) {
-                    return " <button onclick=\'vaccineInfo(" + value + ")\' type='button' class='btn-default btn text-center' style='background-color: #6f42c1;color: white'>detail</button>"
-                },
+            },{
+                field: 'email',
+                title: 'E-Mail',
 
+            }, {
+                field: 'id',
+                title: 'vaccine detail',
+                formatter: function (value) {
+                    return" <button onclick='vaccineDetail("+value+")' type='button' class='btn-default btn'>detail</button>"
+                }
             }]
         });
     };
@@ -94,5 +99,11 @@ var ButtonInit = function () {
     return oInit;
 };
 
+
+<!-- get student vaccine detail page by student id-->
+var  vaccineDetail = function (value) {
+    window.location.href="http://39.108.37.4:9090/stuVaccine.html#" + value;
+
+};
 
 
