@@ -15,12 +15,23 @@ $(function () {
             $("#dose005").text(result.dose005);
             $("#dose006").text(result.dose006);
 
-            $("#date001").text(new Date(result.date001).toLocaleDateString().replace(/\//g, "-"));
-            $("#date002").text(new Date(result.date002).toLocaleDateString().replace(/\//g, "-"));
-            $("#date003").text(new Date(result.date003).toLocaleDateString().replace(/\//g, "-"));
-            $("#date004").text(new Date(result.date004).toLocaleDateString().replace(/\//g, "-"));
-            $("#date005").text(new Date(result.date005).toLocaleDateString().replace(/\//g, "-"));
-            $("#date006").text(new Date(result.date006).toLocaleDateString().replace(/\//g, "-"));
+            $("#date001").text(setDate(result.date001));
+            $("#date002").text(setDate(result.date002));
+            $("#date003").text(setDate(result.date003));
+            $("#date004").text(setDate(result.date004));
+            $("#date005").text(setDate(result.date005));
+            $("#date006").text(setDate(result.date006));
         }
     })
 })
+
+var setDate = function (value) {
+    var date;
+    if(value == null){
+        date = "";
+    }else{
+        date = ", at " + new Date(value).toLocaleDateString().replace(/\//g, "-");
+    }
+    return date;
+
+}
