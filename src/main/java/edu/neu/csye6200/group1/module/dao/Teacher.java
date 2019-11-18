@@ -1,14 +1,12 @@
 package edu.neu.csye6200.group1.module.dao;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Teacher extends AbstractPerson {
     private int teacherID;
     private int credits;
     private double wage;
-    private Date registerDate;
     List<Integer> studentList=new ArrayList<>();
 
     public Teacher() {
@@ -43,21 +41,34 @@ public class Teacher extends AbstractPerson {
         this.wage = wage;
     }
 
-    public Date getRegisterDate() {
-        return registerDate;
-    }
-
-    public void setRegisterDate(Date registerDate) {
-        this.registerDate = registerDate;
-    }
 
     @Override
     public String toString() {
         return "Teacher{" +
-                "teacherID=" + teacherID +
-                ", credits=" + credits +
-                ", wage=" + wage +
-                ", registerDate=" + registerDate +
+                "teacherID=" + getTeacherID() +
+                ", firstName=" + getFirstName() +
+                ", lastName=" + getLastName() +
+                ", gender=" + getGender() +
+                ", credits=" + getCredits() +
+                ", wage=" + getWage() +
+                ", registerDate=" + getRegisterDate() +
                 '}';
+    }
+
+    /**
+     * csv format:
+     * teacher id + teacher firstname + teacher lastname + teacher gender + teacher credits +
+     * teacher wage + teacher registerDate
+     * @return
+     */
+    @Override
+    public String toCSVString() {
+        return getTeacherID() + "," +
+                getFirstName() + "," +
+                getLastName() + "," +
+                getGender() + "," +
+                getCredits() + "," +
+                getWage() + "," +
+                getRegisterDate();
     }
 }

@@ -4,12 +4,8 @@ import java.util.Date;
 
 public class Student extends AbstractPerson {
     private int studentId;
-    private String gender;
-    private String firstName;
-    private String lastName;
     private double gpa;
     private Date birthDate=new Date((long)999999999); // 数据库加入，无初始化
-    private Date registerDate;
     private ImmunizationRecord immunizationRecord;
     private String parentFirstName;
     private String parentLastName;
@@ -18,36 +14,20 @@ public class Student extends AbstractPerson {
     private String parentAddress;
     private String parentGender;
 
+    public Student(){
+
+    }
+
+    public Student(String CSVString){
+
+    }
+
     public int getStudentId() {
         return studentId;
     }
 
     public void setStudentId(int studentId) {
         this.studentId = studentId;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public double getGpa() {
@@ -64,14 +44,6 @@ public class Student extends AbstractPerson {
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
-    }
-
-    public Date getRegisterDate() {
-        return registerDate;
-    }
-
-    public void setRegisterDate(Date registerDate) {
-        this.registerDate = registerDate;
     }
 
     public ImmunizationRecord getImmunizationRecord() {
@@ -133,20 +105,43 @@ public class Student extends AbstractPerson {
     @Override
     public String toString() {
         return "Student{" +
-                "studentId=" + studentId +
-                ", gender='" + gender + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", gpa=" + gpa +
-                ", birthDate=" + birthDate +
-                ", registerDate=" + registerDate +
-                ", immunizationRecord=" + immunizationRecord +
-                ", parentFirstName='" + parentFirstName + '\'' +
-                ", parentLastName='" + parentLastName + '\'' +
-                ", parentPhone='" + parentPhone + '\'' +
-                ", parentEmail='" + parentEmail + '\'' +
-                ", parentAddress='" + parentAddress + '\'' +
-                ", parentGender='" + parentGender + '\'' +
+                "studentId=" + getStudentId() +
+                ", gender='" + getGender() + '\'' +
+                ", firstName='" + getFirstName() + '\'' +
+                ", lastName='" + getLastName() + '\'' +
+                ", gpa=" + getGpa() +
+                ", birthDate=" + getBirthDate() +
+                ", registerDate=" + getRegisterDate() +
+                ", immunizationRecord=" + getImmunizationRecord() +
+                ", parentFirstName='" + getParentFirstName() + '\'' +
+                ", parentLastName='" + getParentLastName() + '\'' +
+                ", parentPhone='" + getParentPhone() + '\'' +
+                ", parentEmail='" + getParentEmail() + '\'' +
+                ", parentAddress='" + getParentAddress() + '\'' +
+                ", parentGender='" + getParentGender() + '\'' +
                 '}';
+    }
+
+    /**
+     * csv format :
+     * studentId + student firstname + student lastname + student gender + student GPA + student birthday + student registration date
+     * parent firstname + parent lastname + parent gender + parent phone + parent email + parent address
+     * @return a csv String
+     */
+    @Override
+    public String toCSVString() {
+        return getStudentId() + "," +
+                getFirstName() + "," +
+                getLastName() + "," +
+                getGender() + "," +
+                getGpa() + "," +
+                getBirthDate() + "," +
+                getRegisterDate() + "," +
+                getParentFirstName() + "," +
+                getParentLastName() + "," +
+                getParentGender() + "," +
+                getParentPhone() + "," +
+                getParentEmail() + "," +
+                getParentAddress();
     }
 }

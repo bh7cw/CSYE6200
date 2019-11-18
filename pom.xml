@@ -30,6 +30,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.2.1.RELEASE</version>
+
         </dependency>
 
 
@@ -59,6 +60,7 @@
         </dependency>
 
         <!--jquery的jar包 -->
+        <!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
@@ -94,12 +96,12 @@
     </dependencies>
 
     <build>
-<plugins>
-    <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-    </plugin>
-</plugins>
-</build>
+        <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+        </plugins>
+    </build>
 
-        </project>
+</project>
