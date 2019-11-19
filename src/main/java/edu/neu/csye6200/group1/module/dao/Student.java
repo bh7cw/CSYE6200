@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Student extends AbstractPerson {
     private int studentId;
+    private int teacherId;
     private double gpa;
     private Date birthDate=new Date((long)999999999); // 数据库加入，无初始化
     private ImmunizationRecord immunizationRecord;
@@ -18,12 +19,42 @@ public class Student extends AbstractPerson {
 
     }
 
+    /**
+     * csv input format :
+     * student firstname + student lastname + student gender + student GPA + student birthday + student registration date
+     * parent firstname + parent lastname + parent gender + parent phone + parent email + parent address
+     * @param CSVString the csv string read from FileUtil with with 12 attributes
+     */
     public Student(String CSVString){
-
+        String[] fields = CSVString.split(",");
+        if(fields.length != 12) throw new IllegalArgumentException("The attributes for student input CSV string must be 12: " +
+                "student firstname + student lastname + student gender + student GPA + student birthday + student registration date+\n" +
+                "parent firstname + parent lastname + parent gender + parent phone + parent email + parent address");
+        //this.setStudentId();
+        this.setFirstName(fields[0]);
+        this.setLastName(fields[1]);
+        this.setGender(fields[2]);
+        this.setGpa(FileUtil.strToDouble(fields[3]));
+        this.setBirthDate(FileUtil.strToDate(fields[4]));
+        this.setRegisterDate(FileUtil.strToDate(fields[5]));
+        this.setParentFirstName(fields[6]);
+        this.setParentLastName(fields[7]);
+        this.setParentGender(fields[8]);
+        this.setParentPhone(fields[9]);
+        this.setParentEmail(fields[10]);
+        this.setParentAddress(fields[11]);
     }
 
     public int getStudentId() {
         return studentId;
+    }
+
+    public int getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
     }
 
     public void setStudentId(int studentId) {
@@ -123,7 +154,7 @@ public class Student extends AbstractPerson {
     }
 
     /**
-     * csv format :
+     * csv output format :
      * studentId + student firstname + student lastname + student gender + student GPA + student birthday + student registration date
      * parent firstname + parent lastname + parent gender + parent phone + parent email + parent address
      * @return a csv String
