@@ -81,6 +81,6 @@ public class Teacher extends AbstractPerson {
                 getGender() + "," +
                 getCredits() + "," +
                 getWage() + "," +
-                getRegisterDate();
+                FileUtil.dateToString(getRegisterDate());
     }
 }

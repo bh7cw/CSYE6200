@@ -157,8 +157,8 @@ public class Student extends AbstractPerson {
                 getLastName() + "," +
                 getGender() + "," +
                 getGpa() + "," +
-                getBirthDate() + "," +
-                getRegisterDate() + "," +
+                FileUtil.dateToString(getBirthDate()) + "," +
+                FileUtil.dateToString(getRegisterDate()) + "," +
                 getParentFirstName() + "," +
                 getParentLastName() + "," +
                 getParentGender() + "," +
