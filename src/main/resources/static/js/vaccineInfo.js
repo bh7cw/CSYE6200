@@ -48,7 +48,7 @@ var TableInit = function () {
                 field: 'date001',
                 title: 'Inject Date',
                 formatter: function (value, row) {
-                    return new Date(value).toLocaleDateString().replace(/\//g, "-");
+                    return setDate(value);
                 }
             },{
                 field: 'dose002',
@@ -57,7 +57,7 @@ var TableInit = function () {
                 field: 'date002',
                 title: 'Inject Date',
                 formatter: function (value, row) {
-                    return new Date(value).toLocaleDateString().replace(/\//g, "-") ;
+                    return setDate(value) ;
                 }
             },{
                 field: 'dose003',
@@ -66,7 +66,7 @@ var TableInit = function () {
                 field: 'date003',
                 title: 'Inject Date',
                 formatter: function (value, row) {
-                    return new Date(value).toLocaleDateString().replace(/\//g, "-");
+                    return setDate(value);
                 }
             },{
                 field: 'dose004',
@@ -75,7 +75,7 @@ var TableInit = function () {
                 field: 'date004',
                 title: 'Inject Date',
                 formatter: function (value, row) {
-                    return new Date(value).toLocaleDateString().replace(/\//g, "-");
+                    return setDate(value);
                 }
             },{
                 field: 'dose005',
@@ -84,7 +84,7 @@ var TableInit = function () {
                 field: 'date005',
                 title: 'Inject Date',
                 formatter: function (value, row) {
-                    return new Date(value).toLocaleDateString().replace(/\//g, "-");
+                    return setDate(value);
                 }
             },{
                 field: 'dose006',
@@ -93,7 +93,7 @@ var TableInit = function () {
                 field: 'date006',
                 title: 'Inject Date',
                 formatter: function (value, row) {
-                    return new Date(value).toLocaleDateString().replace(/\//g, "-");
+                    return setDate(value);
                 }
             }]
         });
@@ -128,4 +128,13 @@ var ButtonInit = function () {
 };
 
 
+var setDate = function (value) {
+    var date;
+    if(value == null){
+        date = "-";
+    }else{
+        date = new Date(value).toLocaleDateString().replace(/\//g, "-");
+    }
+    return date;
 
+}
