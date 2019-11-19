@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Teacher extends AbstractPerson {
-    private int teacherID;
+    private int teacherId;
     private int credits;
     private double wage;
-    List<Integer> studentList=new ArrayList<>();
 
     public Teacher() {
 
@@ -18,11 +17,11 @@ public class Teacher extends AbstractPerson {
     }
 
     public int getTeacherID() {
-        return teacherID;
+        return teacherId;
     }
 
     public void setTeacherID(int teacherID) {
-        this.teacherID = teacherID;
+        this.teacherId = teacherID;
     }
 
     public int getCredits() {
@@ -40,7 +39,6 @@ public class Teacher extends AbstractPerson {
     public void setWage(double wage) {
         this.wage = wage;
     }
-
 
     @Override
     public String toString() {
