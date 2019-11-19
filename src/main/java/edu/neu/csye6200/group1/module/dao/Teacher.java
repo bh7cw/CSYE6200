@@ -1,8 +1,7 @@
 package edu.neu.csye6200.group1.module.dao;
 
 public class Teacher extends AbstractPerson {
-    private int teacherID;
-    private int groupId;
+    private int teacherId;
     private int credits;
     private double wage;
 
@@ -30,20 +29,12 @@ public class Teacher extends AbstractPerson {
         this.setRegisterDate(FileUtil.strToDate(fileds[5]));
     }
 
-    public int getGroupId() {
-        return groupId;
+    public int getTeacherId() {
+        return teacherId;
     }
 
-    public void setGroupId(int groupId) {
-        this.groupId = groupId;
-    }
-
-    public int getTeacherID() {
-        return teacherID;
-    }
-
-    public void setTeacherID(int teacherID) {
-        this.teacherID = teacherID;
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
     }
 
     public int getCredits() {
@@ -66,7 +57,7 @@ public class Teacher extends AbstractPerson {
     @Override
     public String toString() {
         return "Teacher{" +
-                "teacherID=" + getTeacherID() +
+                "teacherID=" + getTeacherId() +
                 ", firstName=" + getFirstName() +
                 ", lastName=" + getLastName() +
                 ", gender=" + getGender() +
@@ -84,7 +75,7 @@ public class Teacher extends AbstractPerson {
      */
     @Override
     public String toCSVString() {
-        return getTeacherID() + "," +
+        return getTeacherId() + "," +
                 getFirstName() + "," +
                 getLastName() + "," +
                 getGender() + "," +

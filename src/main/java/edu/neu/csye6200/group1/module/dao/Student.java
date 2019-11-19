@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Student extends AbstractPerson {
     private int studentId;
-    private int teacherId;
     private double gpa;
     private Date birthDate=new Date((long)999999999); // 数据库加入，无初始化
     private ImmunizationRecord immunizationRecord;
@@ -47,14 +46,6 @@ public class Student extends AbstractPerson {
 
     public int getStudentId() {
         return studentId;
-    }
-
-    public int getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(int teacherId) {
-        this.teacherId = teacherId;
     }
 
     public void setStudentId(int studentId) {
