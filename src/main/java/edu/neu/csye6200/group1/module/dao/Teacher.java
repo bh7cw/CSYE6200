@@ -1,5 +1,8 @@
 package edu.neu.csye6200.group1.module.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Teacher extends AbstractPerson {
     private int teacherId;
     private int credits;
@@ -9,32 +12,16 @@ public class Teacher extends AbstractPerson {
 
     }
 
-    /**
-     * csv input format:
-     * teacher firstname + teacher lastname + teacher gender + teacher credits +
-     * teacher wage + teacher registerDate
-     * @param CSVString the csv string read from FileUtil with with 6 attributes
-     */
     public Teacher(String CSVString){
-        String[] fileds = CSVString.split(",");
-        if(fileds.length != 6) throw new IllegalArgumentException("The attributes for student input CSV string must be 12: /n" +
-                "teacher firstname + teacher lastname + teacher gender + teacher credits +\n" +
-                "teacher wage + teacher registerDate");
 
-        this.setFirstName(fileds[0]);
-        this.setLastName(fileds[1]);
-        this.setGender(fileds[2]);
-        this.setCredits(FileUtil.strToInt(fileds[3]));
-        this.setWage(FileUtil.strToDouble(fileds[4]));
-        this.setRegisterDate(FileUtil.strToDate(fileds[5]));
     }
 
-    public int getTeacherId() {
+    public int getTeacherID() {
         return teacherId;
     }
 
-    public void setTeacherId(int teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacherID(int teacherID) {
+        this.teacherId = teacherID;
     }
 
     public int getCredits() {
@@ -53,11 +40,10 @@ public class Teacher extends AbstractPerson {
         this.wage = wage;
     }
 
-
     @Override
     public String toString() {
         return "Teacher{" +
-                "teacherID=" + getTeacherId() +
+                "teacherID=" + getTeacherID() +
                 ", firstName=" + getFirstName() +
                 ", lastName=" + getLastName() +
                 ", gender=" + getGender() +
@@ -68,19 +54,19 @@ public class Teacher extends AbstractPerson {
     }
 
     /**
-     * csv output format:
+     * csv format:
      * teacher id + teacher firstname + teacher lastname + teacher gender + teacher credits +
      * teacher wage + teacher registerDate
      * @return
      */
     @Override
     public String toCSVString() {
-        return getTeacherId() + "," +
+        return getTeacherID() + "," +
                 getFirstName() + "," +
                 getLastName() + "," +
                 getGender() + "," +
                 getCredits() + "," +
                 getWage() + "," +
-                FileUtil.dateToString(getRegisterDate());
+                getRegisterDate();
     }
 }
