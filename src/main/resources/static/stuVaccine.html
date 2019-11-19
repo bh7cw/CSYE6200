@@ -10,8 +10,7 @@
     <link href="css/dashboard.css" rel="stylesheet">
 
 
-
-    <script src="lib/bootstrap/js/jquery-3.3.1.min.js" ></script>
+    <script src="lib/bootstrap/js/jquery-3.3.1.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script src="lib/bootstrap/js/bootstrap-table.js"></script>
@@ -31,14 +30,14 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item ">
+            <li class="nav-item active">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown active" >
+            <li class="nav-item dropdown " >
                 <a class="nav-link dropdown-toggle"   href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Students Information</a>
                 <div class="dropdown-menu " style="background-color: #6c757d" aria-labelledby="dropdown01">
                     <a class="dropdown-item text-black-50" href="enroll.html"><h6>Student Register</h6></a>
-                    <a class="dropdown-item text-black-50 " href=""><h6>CSV import/export</h6></a>
+                    <a class="dropdown-item text-black-50" href="#"><h6>CSV import/export</h6></a>
                     <a class="dropdown-item text-black-50" href="studentInfo.html"><h6>Show All Students</h6></a>
                 </div>
             </li>
@@ -48,7 +47,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " href="#">Teacher Information</a>
+                <a class="nav-link " href="teacherInfo.html">Teacher Information</a>
             </li>
 
         </ul>
@@ -57,11 +56,9 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
-
-
 </nav>
 <div class="container">
-    <h1 class="jumbotron-heading text-center " style = "color: #6f42c1">Here is the student vaccine information !</h1>
+    <h1 class="jumbotron-heading text-center " style="color: #6f42c1">Here is the student vaccine information !</h1>
     <div class="card-deck mb-3 text-center">
 
         <div class="card mb-4 shadow-sm">
@@ -70,8 +67,9 @@
             </div>
             <div class="card-body">
                 <h1 class="card-title pricing-card-title"><small class="text-muted">require</small> 3 </h1>
-                <h3 class="card-title pricing-card-title"><small class="text-muted">you had <label id="dose001"></label> <label id="date001"> </label></small></h3>
-                <button type="button" class="btn btn-lg btn-block btn-primary" id = "btn_1">Inject Today</button>
+                <h3 class="card-title pricing-card-title"><small class="text-muted">you had <label id="dose001"></label>
+                    <label id="date001"> </label></small></h3>
+                <button type="button" class="btn btn-lg btn-block btn-primary" id="btn_1">Inject Today</button>
             </div>
         </div>
         <div class="card mb-4 shadow-sm">
@@ -80,8 +78,9 @@
             </div>
             <div class="card-body">
                 <h1 class="card-title pricing-card-title"><small class="text-muted">require</small> 3 </h1>
-                <h3 class="card-title pricing-card-title"><small class="text-muted">you had <label id="dose002"></label><label id="date002"> </label></small></h3>
-                <button type="button" class="btn btn-lg btn-block btn-primary" id = "btn_2">Inject Today</button>
+                <h3 class="card-title pricing-card-title"><small class="text-muted">you had <label id="dose002"></label><label
+                        id="date002"> </label></small></h3>
+                <button type="button" class="btn btn-lg btn-block btn-primary" id="btn_2">Inject Today</button>
             </div>
         </div>
         <div class="card mb-4 shadow-sm">
@@ -90,8 +89,9 @@
             </div>
             <div class="card-body">
                 <h1 class="card-title pricing-card-title"><small class="text-muted">require</small> 3 </h1>
-                <h3 class="card-title pricing-card-title"><small class="text-muted">you had <label id="dose003"></label> <label id="date003"> </label></small></h3>
-                <button type="button" class="btn btn-lg btn-block btn-primary" id = "btn_3">Inject Today</button>
+                <h3 class="card-title pricing-card-title"><small class="text-muted">you had <label id="dose003"></label>
+                    <label id="date003"> </label></small></h3>
+                <button type="button" class="btn btn-lg btn-block btn-primary" id="btn_3">Inject Today</button>
             </div>
         </div>
     </div>
@@ -104,8 +104,9 @@
             </div>
             <div class="card-body">
                 <h1 class="card-title pricing-card-title"><small class="text-muted">require</small> 3 </h1>
-                <h3 class="card-title pricing-card-title"><small class="text-muted">you had <label id="dose004"></label><label id="date004"> </label></small></h3>
-                <button type="button" class="btn btn-lg btn-block btn-primary" id = "btn_4">Inject Today</button>
+                <h3 class="card-title pricing-card-title"><small class="text-muted">you had <label id="dose004"></label><label
+                        id="date004"> </label></small></h3>
+                <button type="button" class="btn btn-lg btn-block btn-primary" id="btn_4">Inject Today</button>
             </div>
         </div>
         <div class="card mb-4 shadow-sm">
@@ -114,8 +115,9 @@
             </div>
             <div class="card-body">
                 <h1 class="card-title pricing-card-title"><small class="text-muted">require</small> 3 </h1>
-                <h3 class="card-title pricing-card-title"><small class="text-muted">you had <label id="dose005"></label><label id="date005"> </label></small></h3>
-                <button type="button" class="btn btn-lg btn-block btn-primary" id = "btn_5">Inject Today</button>
+                <h3 class="card-title pricing-card-title"><small class="text-muted">you had <label id="dose005"></label><label
+                        id="date005"> </label></small></h3>
+                <button type="button" class="btn btn-lg btn-block btn-primary" id="btn_5">Inject Today</button>
             </div>
         </div>
         <div class="card mb-4 shadow-sm">
@@ -124,8 +126,9 @@
             </div>
             <div class="card-body">
                 <h1 class="card-title pricing-card-title"><small class="text-muted">require</small> 3 </h1>
-                <h3 class="card-title pricing-card-title"><small class="text-muted">you had <label id="dose006"></label><label id="date006"> </label></small></h3>
-                <button type="button" class="btn btn-lg btn-block btn-primary" id = "btn_6">Inject Today</button>
+                <h3 class="card-title pricing-card-title"><small class="text-muted">you had <label id="dose006"></label><label
+                        id="date006"> </label></small></h3>
+                <button type="button" class="btn btn-lg btn-block btn-primary" id="btn_6">Inject Today</button>
             </div>
         </div>
     </div>

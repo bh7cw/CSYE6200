@@ -7,7 +7,7 @@ package edu.neu.csye6200.group1.module.dao;
  * name: DTaP
  * totalDose: 4
  * validMonth: 24 months
- * daysBetweenDoses: {17, 17, 25, 25}
+ * daysBetweenDoses: {17, 17, 25}
  * description: Other details of vaccine
  * isRequiredST: false
  */
