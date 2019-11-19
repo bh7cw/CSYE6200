@@ -14,7 +14,7 @@ var TableInit = function () {
     //初始化Table
     oTableInit.Init = function () {
         $('#stuInformation').bootstrapTable({
-            url: 'https://localhost:9090/showAllStudentInfo',         //moc url // （*）
+            url: '',         //moc url // （*）
             method: 'get',                      //请求方式（*）
             toolbar: '#toolbar',                //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
@@ -65,4 +65,18 @@ var TableInit = function () {
         return map;
     };
     return oTableInit;
+};
+
+
+var ButtonInit = function () {
+    var oInit = new Object();
+    var postdata = {};
+
+    oInit.Init = function () {
+        $("#btn_query").click(function () {
+            $("#stuInformation").bootstrapTable('refresh');
+        });
+    };
+
+    return oInit;
 };

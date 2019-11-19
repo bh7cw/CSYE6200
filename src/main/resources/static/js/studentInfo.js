@@ -10,12 +10,13 @@ $(function () {
 });
 
 var TableInit = function () {
+
     var oTableInit = new Object();
     //初始化Table
     oTableInit.Init = function () {
         $('#stuInformation').bootstrapTable({
-            url: 'https://localhost:9090/showAllStudentInfo',         //moc url // （*）
-            method: 'get',                      //请求方式（*）
+            url: 'http://localhost:9090/showAllStudentInfo',         //moc url // （*）
+            method: 'GET',                      //请求方式（*）
             toolbar: '#toolbar',                //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
             cache: true,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -39,30 +40,31 @@ var TableInit = function () {
             cardView: false,                    //是否显示详细视图
             detailView: false,                   //是否显示父子表
             columns: [{
-                field: 'name',
+                field: 'firstName',
                 title: 'name',
             }, {
-                field: "id",
+                field: "studentId",
                 title: "student id"
             }, {
-                field: "age",
+                field: "month",
                 title: "Month"
             }, {
-                field: 'date',
+                field: 'registerDate',
                 title: 'register date',
                 formatter: function (value, row) {
                     return new Date(value).toLocaleDateString().replace(/\//g, "-");
                 }
 
             }, {
-                field: 'parents',
+                field: 'parentFirstName',
                 title: 'parents',
+
             }, {
                 field: 'parentEmail',
                 title: 'E-Mail',
 
             }, {
-                field: 'id',
+                field: 'studentId',
                 title: 'operation',
                 formatter: function (value) {
                     return " <button onclick='vaccineDetail(" + value + ")' type='button' class='btn-default btn'>vaccine</button>" +
@@ -102,7 +104,7 @@ var ButtonInit = function () {
 
 <!-- get student vaccine detail page by student id-->
 var vaccineDetail = function (value) {
-    window.location.href = "http://39.108.37.4:9090/stuVaccine.html#" + value;
+    window.location.href = "http://localhost:9090/stuVaccine.html#" + value;
 
 };
 

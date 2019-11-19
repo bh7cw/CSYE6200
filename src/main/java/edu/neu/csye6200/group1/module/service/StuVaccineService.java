@@ -21,7 +21,10 @@ public class StuVaccineService {
 
 
 
-    //001 : only twice inject
+    /**
+     *
+     *  dose001: only need 2 doses injection
+     */
     public Map inject001(int id, Date date, Map<String, Object> map){
 
         int times = vaccineRecordMapper.getTimes001(id);
@@ -55,7 +58,12 @@ public class StuVaccineService {
 
     }
 
-    //002 : only 4th inject
+
+
+    /**
+     *
+     *  dose002: only need 4 doses injection
+     */
     public Map inject002(int id, Date date, Map<String, Object> map){
         int times = vaccineRecordMapper.getTimes002(id);
         if(times == 0){
@@ -99,7 +107,10 @@ public class StuVaccineService {
 
     }
 
-    //003 : only 3th inject
+    /**
+     *
+     *  dose003 only need 3 doses injection
+     */
     public Map inject003(int id, Date date, Map<String, Object> map){
         int times = vaccineRecordMapper.getTimes003(id);
         if(times == 0){
@@ -116,7 +127,7 @@ public class StuVaccineService {
         System.out.print(cal.getTime());
         System.out.print(date);
 
-        if ( times < 2){
+        if ( times < 3){
             if (cal.getTime().after(date)){
                 map.put("msg","the next inject should at " + cal.getTime());
             }else{
