@@ -56,7 +56,7 @@ var TableInit = function () {
                 }
 
             }, {
-                field: 'parentFirstName',
+                field: 'parentFullName',
                 title: 'parents',
 
             }, {
@@ -67,8 +67,8 @@ var TableInit = function () {
                 field: 'studentId',
                 title: 'operation',
                 formatter: function (value) {
-                    return " <button onclick='vaccineDetail(" + value + ")' type='button' class='btn-default btn'>vaccine</button>" +
-                        " <button onclick=\'deleteStu(" + value + ")\' type='button' class='btn-default btn'>delete</button>"
+                    return " <button onclick='vaccineDetail(" + value + ")' type='button' class='btn-dark btn'>vaccine</button>" +
+                        " <button onclick=\'deleteStu(" + value + ")\' type='button' class='btn-dark btn'>delete</button>"
                 }
             }]
         });

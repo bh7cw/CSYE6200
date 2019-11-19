@@ -44,15 +44,13 @@ public class StuVaccineService {
 
         if ( times < 2){
             if (cal.getTime().after(date)){
-                map.put("msg","the next inject should at " + cal.getTime());
+                map.put("msg","Sorry, you should inject at " + cal.getTime());
             }else{
                 vaccineRecordMapper.updateInject001(id, date);
                 vaccineRecordMapper.updateDose001(id, times+1);
                 map.put("msg", "Inject Successful!");
 
             }
-        }else{
-            map.put("msg", "you had finished this vaccine!");
         }
         return map;
 
@@ -79,10 +77,10 @@ public class StuVaccineService {
         cal.setTime(lastInject);
 
 
-        if ( times < 2 ){
+        if ( times < 3 ){
             cal.add(Calendar.DATE, 17);
             if (cal.getTime().after(date)){
-                map.put("msg","the next inject should at " + cal.getTime());
+                map.put("msg","Sorry, you should inject at " + cal.getTime());
 
             }else{
                 vaccineRecordMapper.updateInject002(id, date);
@@ -93,15 +91,13 @@ public class StuVaccineService {
         }else if(times < 4){
             cal.add(Calendar.DATE, 25);
             if (cal.getTime().after(date)){
-                map.put("msg","the next inject should at " + cal.getTime());
+                map.put("msg","Sorry, you should inject at " + cal.getTime());
 
             }else{
                 vaccineRecordMapper.updateInject002(id, date);
                 vaccineRecordMapper.updateDose002(id, times+1);
                 map.put("msg", "Inject Successful!");
             }
-        }else{
-            map.put("msg", "you had finished this vaccine!");
         }
         return map;
 
@@ -113,6 +109,7 @@ public class StuVaccineService {
      */
     public Map inject003(int id, Date date, Map<String, Object> map){
         int times = vaccineRecordMapper.getTimes003(id);
+
         if(times == 0){
             vaccineRecordMapper.updateInject003(id, date);
             vaccineRecordMapper.updateDose003(id, times+1);
@@ -127,17 +124,98 @@ public class StuVaccineService {
         System.out.print(cal.getTime());
         System.out.print(date);
 
-        if ( times < 3){
-            if (cal.getTime().after(date)){
-                map.put("msg","the next inject should at " + cal.getTime());
-            }else{
+        if ( times < 3) {
+            if (cal.getTime().after(date)) {
+                map.put("msg", "Sorry, you should inject at " + cal.getTime());
+            } else {
                 vaccineRecordMapper.updateInject003(id, date);
-                vaccineRecordMapper.updateDose003(id, times+1);
+                vaccineRecordMapper.updateDose003(id, times + 1);
                 map.put("msg", "Inject Successful!");
 
             }
-        }else{
-            map.put("msg", "you had finished this vaccine!");
+        }
+        return map;
+
+    }
+
+    /**
+     *
+     *  dose004 only need 3 doses injection
+     */
+    public Map inject004(int id, Date date, Map<String, Object> map){
+        int times = vaccineRecordMapper.getTimes004(id);
+        //update the date and times/dose
+        if(times == 0){
+            vaccineRecordMapper.updateInject004(id, date);
+            vaccineRecordMapper.updateDose004(id, times+1);
+            map.put("msg", "Inject Successful!");
+            return map;
+        }
+
+        // get the next validate inject date
+        Date lastInject = vaccineRecordMapper.getInjectDate004(id);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(lastInject);
+
+
+        if ( times < 2 ){
+            cal.add(Calendar.DATE, 30);
+            if (cal.getTime().after(date)){
+                map.put("msg","Sorry, you should inject at " + cal.getTime());
+
+            }else{
+                vaccineRecordMapper.updateInject004(id, date);
+                vaccineRecordMapper.updateDose004(id, times+1);
+                map.put("msg", "Inject Successful!");
+
+            }
+        }else if(times < 3){
+            cal.add(Calendar.DATE, 35);
+            if (cal.getTime().after(date)){
+                map.put("msg","Sorry, you should inject at " + cal.getTime());
+
+            }else{
+                vaccineRecordMapper.updateInject004(id, date);
+                vaccineRecordMapper.updateDose004(id, times+1);
+                map.put("msg", "Inject Successful!");
+
+            }
+        }
+        return map;
+
+    }
+
+    /**
+     *
+     *  dose005 only need 1 doses injection
+     */
+    public Map inject005(int id, Date date, Map<String, Object> map){
+        int times = vaccineRecordMapper.getTimes005(id);
+        //update the date and times/dose
+        if(times == 0) {
+            vaccineRecordMapper.updateInject005(id, date);
+            vaccineRecordMapper.updateDose005(id, times + 1);
+            map.put("msg", "Inject Successful!");
+            return map;
+        }
+        return map;
+
+    }
+
+
+
+    /**
+     *
+     *  dose006 only need 1 doses injection
+     */
+    public Map inject006(int id, Date date, Map<String, Object> map){
+        int times = vaccineRecordMapper.getTimes006(id);
+        //update the date and times/dose
+        if(times == 0) {
+            vaccineRecordMapper.updateInject006(id, date);
+            vaccineRecordMapper.updateDose006(id, times + 1);
+            map.put("msg", "Inject Successful!");
+            return map;
         }
         return map;
 

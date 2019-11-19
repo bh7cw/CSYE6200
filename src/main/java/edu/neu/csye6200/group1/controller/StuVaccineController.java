@@ -55,7 +55,7 @@ public class StuVaccineController {
         ImmunizationRecord immunizationRecord=new Gson().fromJson(requestString, new TypeToken<ImmunizationRecord>(){}.getType());
         Date date = immunizationRecord.getDate002();
         Map<String,Object> map = new HashMap<>();
-        stuVaccineService.inject001(id, date,map);
+        stuVaccineService.inject002(id, date,map);
         return map;
 
 
@@ -71,4 +71,35 @@ public class StuVaccineController {
         return map;
     }
 
+    //update inject 004
+    @ResponseBody
+    @RequestMapping(value = "/inject004/{id}", method = RequestMethod.POST)
+    public Map inject004(@PathVariable("id") Integer id, @RequestBody String requestString) throws ParseException {
+        ImmunizationRecord immunizationRecord=new Gson().fromJson(requestString, new TypeToken<ImmunizationRecord>(){}.getType());
+        Date date = immunizationRecord.getDate004();
+        Map<String,Object> map = new HashMap<>();
+        stuVaccineService.inject004(id, date,map);
+        return map;
+    }
+
+    //update inject 005
+    @ResponseBody
+    @RequestMapping(value = "/inject005/{id}", method = RequestMethod.POST)
+    public Map inject005(@PathVariable("id") Integer id, @RequestBody String requestString) throws ParseException {
+        ImmunizationRecord immunizationRecord=new Gson().fromJson(requestString, new TypeToken<ImmunizationRecord>(){}.getType());
+        Date date = immunizationRecord.getDate005();
+        Map<String,Object> map = new HashMap<>();
+        stuVaccineService.inject005(id, date,map);
+        return map;
+    }
+    //update inject 006
+    @ResponseBody
+    @RequestMapping(value = "/inject006/{id}", method = RequestMethod.POST)
+    public Map inject006(@PathVariable("id") Integer id, @RequestBody String requestString) throws ParseException {
+        ImmunizationRecord immunizationRecord=new Gson().fromJson(requestString, new TypeToken<ImmunizationRecord>(){}.getType());
+        Date date = immunizationRecord.getDate006();
+        Map<String,Object> map = new HashMap<>();
+        stuVaccineService.inject006(id, date,map);
+        return map;
+    }
 }

@@ -27,7 +27,7 @@ public interface VaccineRecordMapper {
      * @param id
      * @param date
      */
-    //updet injedct date
+    //update inject date
     @Update("update records set date_001 = #{date} where stu_id = #{id}")
     void updateInject001(int id, Date date);
 
@@ -49,7 +49,7 @@ public interface VaccineRecordMapper {
      * @param id
      * @param date
      */
-    //updet injedct date
+    //update inject date
     @Update("update records set date_002 = #{date} where stu_id = #{id}")
     void updateInject002(int id, Date date);
 
@@ -70,7 +70,7 @@ public interface VaccineRecordMapper {
      * @param id
      * @param date
      */
-    //updet injedct date
+    //update inject date
     @Update("update records set date_003 = #{date} where stu_id = #{id}")
     void updateInject003(int id, Date date);
 
@@ -85,5 +85,73 @@ public interface VaccineRecordMapper {
     //update inject times
     @Update("update records set dose_003 = #{dose} where stu_id = #{id}")
     void updateDose003(int id, int dose);
+
+
+    /**
+     * for 004 vaccine
+     * @param id
+     * @param date
+     */
+    //update inject date
+    @Update("update records set date_004= #{date} where stu_id = #{id}")
+    void updateInject004(int id, Date date);
+
+    //get inject date
+    @Select("select date_004 from records where stu_id = #{id}")
+    Date getInjectDate004(int id);
+
+    //get inject times
+    @Select("select dose_004 from records where stu_id = #{id}")
+    Integer getTimes004(int id);
+
+    //update inject times
+    @Update("update records set dose_004 = #{dose} where stu_id = #{id}")
+    void updateDose004(int id, int dose);
+
+
+    /**
+     * for 005 vaccine
+     * @param id
+     * @param date
+     */
+    //update inject date
+    @Update("update records set date_005= #{date} where stu_id = #{id}")
+    void updateInject005(int id, Date date);
+
+    //get inject date
+    @Select("select date_005 from records where stu_id = #{id}")
+    Date getInjectDate005(int id);
+
+    //get inject times
+    @Select("select dose_005 from records where stu_id = #{id}")
+    Integer getTimes005(int id);
+
+    //update inject times
+    @Update("update records set dose_005 = #{dose} where stu_id = #{id}")
+    void updateDose005(int id, int dose);
+
+
+    /**
+     * for 005 vaccine
+     * @param id
+     * @param date
+     */
+    //update inject date
+    @Update("update records set date_006= #{date} where stu_id = #{id}")
+    void updateInject006(int id, Date date);
+
+    //get inject date
+    @Select("select date_006 from records where stu_id = #{id}")
+    Date getInjectDate006(int id);
+
+    //get inject times
+    @Select("select dose_006 from records where stu_id = #{id}")
+    Integer getTimes006(int id);
+
+    //update inject times
+    @Update("update records set dose_006 = #{dose} where stu_id = #{id}")
+    void updateDose006(int id, int dose);
+
+
 
 }

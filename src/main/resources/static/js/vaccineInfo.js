@@ -116,7 +116,7 @@ var TableInit = function () {
 
 var ButtonInit = function () {
     var oInit = new Object();
-    var postdata = {};
+    // var postdata = {};
 
     oInit.Init = function () {
         $("#btn_query").click(function () {
