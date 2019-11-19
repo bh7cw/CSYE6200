@@ -42,6 +42,18 @@ public class ImmunizationRecord {
     private Date date006;
     private boolean require006;
 
+    public ImmunizationRecord() {
+
+    }
+
+    /**
+     *
+     * @param CSVString
+     */
+    public ImmunizationRecord(String CSVString){
+        //TODO
+    }
+
     public int getStuID() {
         return stuID;
     }
@@ -193,4 +205,15 @@ public class ImmunizationRecord {
     public void setRequire006(boolean require006) {
         this.require006 = require006;
     }
+
+    /**
+     *
+     * @return
+     */
+    public String toCSVString(){
+        //TODO
+        return "";
+    }
+
+
 }
