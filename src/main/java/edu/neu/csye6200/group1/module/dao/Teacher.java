@@ -1,8 +1,5 @@
 package edu.neu.csye6200.group1.module.dao;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Teacher extends AbstractPerson {
     private int teacherId;
     private int credits;
@@ -12,7 +9,24 @@ public class Teacher extends AbstractPerson {
 
     }
 
+    /**
+     * csv input format:
+     *  teacher firstname + teacher lastname + teacher gender + teacher credits +
+     *  teacher wage + teacher registerDate
+     * @param CSVString an input csv teacher from FileUtil with 6 attributes
+     */
     public Teacher(String CSVString){
+        String[] fileds = CSVString.split(",");
+        if(fileds.length != 6) throw new IllegalArgumentException("The input CSV String for teacher must has 9 attributes: \n" +
+                "teacher firstname + teacher lastname + teacher gender + teacher credits +\n" +
+                " eacher wage + teacher registerDate");
+
+        this.setFirstName(fileds[0]);
+        this.setLastName(fileds[1]);
+        this.setGender(fileds[2]);
+        this.setCredits(FileUtil.strToInt(fileds[3]));
+        this.setWage(FileUtil.strToDouble(fileds[4]));
+        this.setRegisterDate(FileUtil.strToDate(fileds[5]));
 
     }
 
@@ -54,7 +68,7 @@ public class Teacher extends AbstractPerson {
     }
 
     /**
-     * csv format:
+     * csv output format:
      * teacher id + teacher firstname + teacher lastname + teacher gender + teacher credits +
      * teacher wage + teacher registerDate
      * @return
@@ -67,6 +81,6 @@ public class Teacher extends AbstractPerson {
                 getGender() + "," +
                 getCredits() + "," +
                 getWage() + "," +
-                getRegisterDate();
+                FileUtil.dateToString(getRegisterDate());
     }
 }

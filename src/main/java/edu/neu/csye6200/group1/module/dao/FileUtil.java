@@ -81,4 +81,16 @@ public class FileUtil {
         }
         return ans;
     }
+
+    public static boolean strToBoolean(String s){
+        try{
+            return Boolean.parseBoolean(s);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+
 }

@@ -4,7 +4,6 @@ import edu.neu.csye6200.group1.module.dao.ImmunizationRecord;
 import edu.neu.csye6200.group1.module.mapper.VaccineRecordMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sun.util.resources.LocaleData;
 
 import java.util.Calendar;
 import java.util.Date;
