@@ -9,12 +9,10 @@
     <!--    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-table.min.css">-->
     <link href="css/dashboard.css" rel="stylesheet">
     <link href="lib/bootstrap/css/fileinput.min.css"/>
-
-
     <script src="lib/bootstrap/js/jquery-3.3.1.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-<!--    <script type="text/javascript" src="lib/bootstrap/js/fileinput.min.js"></script>-->
+    <!--    <script type="text/javascript" src="lib/bootstrap/js/fileinput.min.js"></script>-->
 
 
     <!--    <script src="lib/bootstrap/js/bootstrap-table.js"></script>-->
@@ -22,7 +20,7 @@
 
     <title>Futaba DayCare</title>
 </head>
-
+<body>
 
 <div id="background"></div>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">，
@@ -68,27 +66,28 @@
         </form>
     </div>
 </nav>
-<div class="container " style="margin-top: 200px" >
-    <h1 class="jumbotron-heading text-center ">Here is to upload the CSV file!</h1>
-    <div class="" >
 
-        <div class="">
-
-            <form method="POST" enctype="multipart/form-data" id="fileUploadForm" style="margin-left: 450px">
+<div class="media text-muted pt-3">
+    <div class="container">
+    <div class="card-header " style="background-color: #6f42c1; color: white">
+        <h3 class = "text-center">Here is to upload the CSV file!</h3>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data" id="fileUploadForm" style="margin-left: 200px">
                 <h5><input type="text" name="extraField"/> <br/><br/></h5>
                 <h5><input type="file" name="files"/><br/><br/></h5>
                 <h5><input type="file" name="files"/><br/><br/></h5>
                 <input type="submit" value="UPLOAD" id="btnSubmit"/>
             </form>
 
-<!--            <strong><label style="margin-left: 450px">UPLOAD RESULT：</label></strong>-->
+            <!--            <strong><label style="margin-left: 450px">UPLOAD RESULT：</label></strong>-->
 
             <h5><Strong><span id="result" style="margin-left: 350px; color: purple"></span></Strong></h5>
-
-
         </div>
-
     </div>
 </div>
+</div>
+
 </body>
 </html>
