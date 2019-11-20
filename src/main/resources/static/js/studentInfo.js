@@ -124,6 +124,6 @@ var deleteStu = function () {
             $("#stuInformation").bootstrapTable('refresh');
         }
     })
-}
+};
 
 
