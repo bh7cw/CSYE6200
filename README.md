@@ -19,4 +19,5 @@ service in service package
 get all vaccine record: http://localhost:9090/vaccineRecord \
 get all stuents information: http://localhost:9090/showAllStudentInfo \
 get student vaccine by id : http://localhost:9090/stuVaccine/{id}    the page is localhost:9090/stuVaccine.html#{id} \
-vaccine inject controll and update: http://localhost:9090//inject00X/{id}   (X means the number of vaccine)
+vaccine inject controll and update: http://localhost:9090//inject00X/{id}   (X means the number of vaccine)\
+delete student by id: http://localhost:9090/deleteStu
