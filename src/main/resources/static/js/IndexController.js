@@ -10,7 +10,7 @@ $(function () {
 });
 
 var TableInit = function () {
-    var oTableInit = new Object();
+    oTableInit = new Object();
     //初始化Table
     oTableInit.Init = function () {
         $('#stuInformation').bootstrapTable({

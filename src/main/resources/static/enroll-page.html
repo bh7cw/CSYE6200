@@ -35,22 +35,22 @@
                 <a class="nav-link dropdown-toggle active" href="#" id="dropdown01" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="true">Students Information</a>
                 <div class="dropdown-menu " style="background-color: #6c757d" aria-labelledby="dropdown01">
-                    <a class="dropdown-item text-black-50" href="enroll.html"><h6>Student Register</h6></a>
+                    <a class="dropdown-item text-black-50" href="enroll-page.html"><h6>Student Register</h6></a>
 
-                    <a class="dropdown-item text-black-50" href="studentInfo.html"><h6>Show All Students</h6></a>
+                    <a class="dropdown-item text-black-50" href="students-information.html"><h6>Show All Students</h6></a>
                 </div>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " href="vaccineInfo.html">Vaccine Information</a>
+                <a class="nav-link " href="vaccines-information.html">Vaccine Information</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " href="teacherInfo.html">Teacher Information</a>
+                <a class="nav-link " href="teachers-information.html">Teacher Information</a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link" href="CSV.html">CSV file Import</a>
+                <a class="nav-link" href="csv-io-page.html">CSV file Import</a>
             </li>
 
         </ul>
@@ -61,14 +61,19 @@
     </div>
 </nav>
 
+
+
 <div class="container">
-    <h1 class="jumbotron-heading text-center">Enter your little one's information for enrollment!</h1>
-    <div class="card text-center">
-        <div class="card-header " style="background-color: #6f42c1; color: white">
-            <h3>Student Register Form</h3>
+    <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+        <ion-icon name="heart"></ion-icon>
+
+        <div class="lh-100">
+            <h5 class="ml-2 mb-lg-0 text-white lh-100">Student Enrollment Form</h5>
         </div>
+    </div>
+    <div class="card text-center">
         <div class="card-body">
-            <form>
+            <form id="enrollForm">
                 <div class="form-group text-left ">
                     <label><strong>Student Name</strong></label>
                     <div class="row">
@@ -132,8 +137,9 @@
                     <input type="email" class="form-control" placeholder="Enter your e-mail">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Enroll Now!</button>
+
             </form>
+            <button class="btn btn-primary" onclick="submit()">Enroll Now!</button>
         </div>
 
         <div class="card-footer text-muted">
@@ -142,6 +148,6 @@
     </div>
 
 </div>
-
+<script src="js/EnrollPageController.js"></script>
 </body>
 </html>

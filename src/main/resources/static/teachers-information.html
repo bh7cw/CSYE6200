@@ -10,23 +10,21 @@
     <link href="css/dashboard.css" rel="stylesheet">
 
 
-
-    <script src="lib/bootstrap/js/jquery-3.3.1.min.js" ></script>
+    <script src="lib/bootstrap/js/jquery-3.3.1.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script src="lib/bootstrap/js/bootstrap-table.js"></script>
-    <script src="js/studentInfo.js"></script>
 
-
-
-    <title>studentInfo</title>
+    <title>Teacher Information</title>
 </head>
-
 <body>
 <div id="background"></div>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">，
-    <a class="navbar-brand " href="#"><ion-icon name = "heart"></ion-icon><strong>Day Care</strong> </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="true" aria-label="Toggle navigation">
+    <a class="navbar-brand " href="#">
+        <ion-icon name="heart"></ion-icon>
+        <strong>Day Care</strong> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -35,51 +33,48 @@
             <li class="nav-item ">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown  active" >
-                <a class="nav-link dropdown-toggle"   href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Students Information</a>
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="true">Students Information</a>
                 <div class="dropdown-menu " style="background-color: #6c757d" aria-labelledby="dropdown01">
-                    <a class="dropdown-item text-black-50" href="enroll.html"><h6>Student Register</h6></a>
-                    <a class="dropdown-item text-black-50" href="studentInfo.html"><h6>Show All Students</h6></a>
+                    <a class="dropdown-item text-black-50" href="enroll-page.html"><h6>Student Register</h6></a>
+                    <a class="dropdown-item text-black-50" href="students-information.html"><h6>Show All Students</h6></a>
                 </div>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " href="vaccineInfo.html">Vaccine Information</a>
+                <a class="nav-link " href="vaccines-information.html">Vaccine Information</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link " href="">Teacher Information</a>
+            <li class="nav-item active">
+                <a class="nav-link " href="#">Teacher Information</a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link" href="CSV.html">CSV file Import</a>
+                <a class="nav-link" href="csv-io-page.html">CSV file Import</a>
             </li>
-
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
+
+
 </nav>
 
-<div class="container">
-    <h3 class="jumbotron-heading text-center">All Students Information!</h3>
-    <div class="card">
+<div class="media text-muted pt-3">
+    <div class="container">
         <div class="card-header " style="background-color: #6f42c1; color: white">
-            <h3 class = "text-center">Students Information</h3>
+            <h3 class="text-center">2019 Fall Teacher Infomation </h3>
         </div>
-        <div class="card-body">
-            <table id="stuInformation"></table>
-        </div>
-
-        <div class="card-footer text-muted text-center">
-            WE PROMISE NOT TO REVEAL YOUR PRIVACY
+        <div class="card">
+            <div class="card-body">
+                <table id="teacherInformation"></table>
+            </div>
         </div>
     </div>
-
-
-
 </div>
+<script src="js/TeacherInformationController.js"></script>
 </body>
 </html>
