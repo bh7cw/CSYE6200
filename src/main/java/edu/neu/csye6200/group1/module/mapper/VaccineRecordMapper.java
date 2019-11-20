@@ -1,6 +1,7 @@
 package edu.neu.csye6200.group1.module.mapper;
 
 import edu.neu.csye6200.group1.module.dao.ImmunizationRecord;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -12,6 +13,17 @@ import java.util.Date;
 @Mapper
 public interface VaccineRecordMapper {
 
+    /**
+     * add new records
+     */
+    @Insert("insert into records(dose_001,dose_002,dose_004,dose_005,dose006," +
+            "date_001,date_002,date_003,date_004,date_005,date_006," +
+            "require_004,require_005,require_006) value(#{dose001},#{dose002},#{dose003}," +
+            "#{dose004},#dose{005},#{dose006},#{date001},#{date002},#{date003}," +
+            "#{date004},#{date005},#{date006},#{require004},#{require005},#{require006})" )
+    void addRecords(int dose001, int dose002, int dose003, int dose004, int dose005, int dose006,
+                    Date date001, Date date002, Date date003, Date date004, Date date005, Date date006,
+                    boolean require004, boolean require005, boolean require006);
     /**
      * get all immunization records from records table
      * @return
