@@ -14,7 +14,7 @@ var TableInit = function () {
     //初始化Table
     oTableInit.Init = function () {
         $('#stuInformation').bootstrapTable({
-            url: '',         //moc url // （*）
+            url: 'http://localhost:9090/showHierarchy',         //moc url // （*）
             method: 'get',                      //请求方式（*）
             toolbar: '#toolbar',                //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
