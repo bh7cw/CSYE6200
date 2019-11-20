@@ -12,6 +12,11 @@ import java.util.Date;
 import java.util.List;
 
 public class FileUtil {
+
+    public static final String student = "student";
+    public static final String teacher = "teacher";
+    public static final String immunization = "immunization";
+
     public void writeTextFile(String fileName, List<String> data) {
         try {
             FileWriter fw = new FileWriter(fileName);
@@ -45,6 +50,7 @@ public class FileUtil {
         }
         return data;
     }
+
 
     public static double strToDouble(String s){
         try{

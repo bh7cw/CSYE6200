@@ -2,8 +2,10 @@ package edu.neu.csye6200.group1.controller;
 
 
 import edu.neu.csye6200.group1.module.dao.UploadModel;
+import edu.neu.csye6200.group1.module.service.CSVinputService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +30,9 @@ import java.util.stream.Collectors;
 public class RestUploadController {
 
     private final Logger logger = LoggerFactory.getLogger(RestUploadController.class);
+
+    @Autowired
+    private CSVinputService csVinputService;
 
     //Save the uploaded file to this folder
     private static String UPLOADED_FOLDER = "files";
@@ -55,6 +60,7 @@ public class RestUploadController {
 
         return new ResponseEntity("Successfully uploaded - " +
                 uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
+
 
     }
 
@@ -116,6 +122,10 @@ public class RestUploadController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
             Files.write(path, bytes);
+//            FileUtil.addFileNames(UPLOADED_FOLDER + file.getOriginalFilename());
+//            logger.error(file.getOriginalFilename());
+            csVinputService.getStudent(UPLOADED_FOLDER + file.getOriginalFilename());
+
 
         }
 
