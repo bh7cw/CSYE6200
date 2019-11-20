@@ -14,7 +14,7 @@
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script src="lib/bootstrap/js/bootstrap-table.js"></script>
-    <script src="js/stuVaccine.js"></script>
+
     <title>Teacher Information</title>
 </head>
 <body>
@@ -33,12 +33,11 @@
             <li class="nav-item ">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown active">
+            <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
                    aria-expanded="true">Students Information</a>
                 <div class="dropdown-menu " style="background-color: #6c757d" aria-labelledby="dropdown01">
                     <a class="dropdown-item text-black-50" href="enroll.html"><h6>Student Register</h6></a>
-                    <a class="dropdown-item text-black-50 " href=""><h6>CSV import/export</h6></a>
                     <a class="dropdown-item text-black-50" href="studentInfo.html"><h6>Show All Students</h6></a>
                 </div>
             </li>
@@ -47,10 +46,13 @@
                 <a class="nav-link " href="vaccineInfo.html">Vaccine Information</a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link " href="#">Teacher Information</a>
             </li>
 
+            <li class="nav-item ">
+                <a class="nav-link" href="CSV.html">CSV file Import</a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -68,7 +70,7 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <table id="stuInformation"></table>
+                <table id="teacherInformation"></table>
             </div>
         </div>
     </div>

@@ -6,26 +6,29 @@
     <link rel="icon"
           href="https://cdn4.iconfinder.com/data/icons/sun-11/50/1-512.png">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-table.min.css">
+    <!--    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-table.min.css">-->
     <link href="css/dashboard.css" rel="stylesheet">
-
-
-
-    <script src="lib/bootstrap/js/jquery-3.3.1.min.js" ></script>
+    <link href="lib/bootstrap/css/fileinput.min.css"/>
+    <script src="lib/bootstrap/js/jquery-3.3.1.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    <script src="lib/bootstrap/js/bootstrap-table.js"></script>
-    <script src="js/vaccineInfo.js"></script>
+    <!--    <script type="text/javascript" src="lib/bootstrap/js/fileinput.min.js"></script>-->
 
-    <title>Vaccine Info</title>
+
+    <!--    <script src="lib/bootstrap/js/bootstrap-table.js"></script>-->
+    <script src="js/CSV.js"></script>
+
+    <title>Futaba DayCare</title>
 </head>
-
-
 <body>
+
 <div id="background"></div>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">，
-    <a class="navbar-brand " href="#"><ion-icon name = "heart"></ion-icon><strong>Day Care</strong> </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="true" aria-label="Toggle navigation">
+    <a class="navbar-brand " href="#">
+        <ion-icon name="heart"></ion-icon>
+        <strong>Day Care</strong> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -34,23 +37,25 @@
             <li class="nav-item ">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown " >
-                <a class="nav-link dropdown-toggle"   href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Students Information</a>
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="true">Students Information</a>
                 <div class="dropdown-menu " style="background-color: #6c757d" aria-labelledby="dropdown01">
                     <a class="dropdown-item text-black-50" href="enroll.html"><h6>Student Register</h6></a>
                     <a class="dropdown-item text-black-50" href="studentInfo.html"><h6>Show All Students</h6></a>
                 </div>
             </li>
 
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link " href="vaccineInfo.html">Vaccine Information</a>
             </li>
+
 
             <li class="nav-item">
                 <a class="nav-link " href="teacherInfo.html">Teacher Information</a>
             </li>
 
-            <li class="nav-item ">
+            <li class="nav-item active">
                 <a class="nav-link" href="CSV.html">CSV file Import</a>
             </li>
 
@@ -62,24 +67,27 @@
     </div>
 </nav>
 
-<div class="container">
-    <h3 class="jumbotron-heading text-center">All Vaccine Record Information!</h3>
+<div class="media text-muted pt-3">
+    <div class="container">
+    <div class="card-header " style="background-color: #6f42c1; color: white">
+        <h3 class = "text-center">Here is to upload the CSV file!</h3>
+    </div>
     <div class="card">
-        <div class="card-header " style="background-color: #6f42c1; color: white">
-            <h3 class = "text-center">Vaccine Record Information</h3>
-        </div>
-        <label class="text-center"> this will show students' latest inject dates and total times</label>
         <div class="card-body">
-            <table id="vaccineInformation"></table>
-        </div>
+            <form method="POST" enctype="multipart/form-data" id="fileUploadForm" style="margin-left: 200px">
+                <h5><input type="text" name="extraField"/> <br/><br/></h5>
+                <h5><input type="file" name="files"/><br/><br/></h5>
+                <h5><input type="file" name="files"/><br/><br/></h5>
+                <input type="submit" value="UPLOAD" id="btnSubmit"/>
+            </form>
 
-        <div class="card-footer text-muted text-center">
-            WE PROMISE NOT TO REVEAL YOUR PRIVACY
+            <!--            <strong><label style="margin-left: 450px">UPLOAD RESULT：</label></strong>-->
+
+            <h5><Strong><span id="result" style="margin-left: 350px; color: purple"></span></Strong></h5>
         </div>
     </div>
-
-
-
 </div>
+</div>
+
 </body>
 </html>

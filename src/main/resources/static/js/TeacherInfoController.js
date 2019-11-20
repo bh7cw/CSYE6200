@@ -13,8 +13,8 @@ var TableInit = function () {
     var oTableInit = new Object();
     //初始化Table
     oTableInit.Init = function () {
-        $('#stuInformation').bootstrapTable({
-            url: 'https://localhost:9090/showAllStudentInfo',         //moc url // （*）
+        $('#teacherInformation').bootstrapTable({
+            url: '',         //moc url // （*）
             method: 'get',                      //请求方式（*）
             toolbar: '#toolbar',                //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
@@ -60,9 +60,24 @@ var TableInit = function () {
         var map = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
             limit: params.limit,   //页面大小
             offset: params.offset,  //页码
-            room: $("#txt_search_room").val(),
+            // room: $("#txt_search_room").val(),
+            // statu: $("#txt_search_statu").val()
         };
         return map;
     };
     return oTableInit;
+};
+
+
+var ButtonInit = function () {
+    var oInit = new Object();
+
+
+    oInit.Init = function () {
+        $("#btn_query").click(function () {
+            $("#teacherInformation").bootstrapTable('refresh');
+        });
+    };
+
+    return oInit;
 };

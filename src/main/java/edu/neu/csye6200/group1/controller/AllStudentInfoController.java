@@ -11,10 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Author
- * Wayne Qu
+ * @Author Wayne Qu
  * 2019/11/18
  */
+
 @Controller
 public class AllStudentInfoController {
     @Autowired

@@ -11,15 +11,15 @@ public class Teacher extends AbstractPerson {
 
     /**
      * csv input format:
-     * teacher firstname + teacher lastname + teacher gender + teacher credits +
-     * teacher wage + teacher registerDate
-     * @param CSVString the csv string read from FileUtil with with 6 attributes
+     *  teacher firstname + teacher lastname + teacher gender + teacher credits +
+     *  teacher wage + teacher registerDate
+     * @param CSVString an input csv teacher from FileUtil with 6 attributes
      */
     public Teacher(String CSVString){
         String[] fileds = CSVString.split(",");
-        if(fileds.length != 6) throw new IllegalArgumentException("The attributes for student input CSV string must be 12: /n" +
+        if(fileds.length != 6) throw new IllegalArgumentException("The input CSV String for teacher must has 9 attributes: \n" +
                 "teacher firstname + teacher lastname + teacher gender + teacher credits +\n" +
-                "teacher wage + teacher registerDate");
+                " eacher wage + teacher registerDate");
 
         this.setFirstName(fileds[0]);
         this.setLastName(fileds[1]);
@@ -27,14 +27,15 @@ public class Teacher extends AbstractPerson {
         this.setCredits(FileUtil.strToInt(fileds[3]));
         this.setWage(FileUtil.strToDouble(fileds[4]));
         this.setRegisterDate(FileUtil.strToDate(fileds[5]));
+
     }
 
-    public int getTeacherId() {
+    public int getTeacherID() {
         return teacherId;
     }
 
-    public void setTeacherId(int teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacherID(int teacherID) {
+        this.teacherId = teacherID;
     }
 
     public int getCredits() {
@@ -53,11 +54,10 @@ public class Teacher extends AbstractPerson {
         this.wage = wage;
     }
 
-
     @Override
     public String toString() {
         return "Teacher{" +
-                "teacherID=" + getTeacherId() +
+                "teacherID=" + getTeacherID() +
                 ", firstName=" + getFirstName() +
                 ", lastName=" + getLastName() +
                 ", gender=" + getGender() +
@@ -75,7 +75,7 @@ public class Teacher extends AbstractPerson {
      */
     @Override
     public String toCSVString() {
-        return getTeacherId() + "," +
+        return getTeacherID() + "," +
                 getFirstName() + "," +
                 getLastName() + "," +
                 getGender() + "," +
