@@ -8,7 +8,7 @@ USE daycare;
 -- SELECT SCHEMA();
 
 -- create table student
-CREATE TABLE IF NOT EXISTS students (
+CREATE TABLE IF NOT EXISTS student (
     student_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     gender CHAR(1) NOT NULL,
     first_name VARCHAR(20) NOT NULL,
@@ -23,11 +23,11 @@ CREATE TABLE IF NOT EXISTS students (
     parent_address VARCHAR(50) NOT NULL,
     parent_gender CHAR(1) NOT NULL
 )  ENGINE=INNODB CHARSET=UTF8;
--- DESC students;
--- SHOW COLUMNS FROM students;
+-- DESC student;
+-- SHOW COLUMNS FROM student;
 
 -- insert data
-INSERT students(student_id, gender, first_name, last_name, gpa, birth_date, register_date, 
+INSERT student(student_id, gender, first_name, last_name, gpa, birth_date, register_date, 
 parent_first_name, parent_last_name, parent_phone, parent_email, parent_address, parent_gender) 
 VALUES(NULL, 'M', 'Jimmy', 'Green', '85', '2018-12-03', '2019-09-04',  -- 10
 'Lily', 'Green', '111-111-1111', 'lily@gmail.com', '9 Washington Street, Boston, MA', 'F'),
@@ -43,10 +43,10 @@ VALUES(NULL, 'M', 'Jimmy', 'Green', '85', '2018-12-03', '2019-09-04',  -- 10
 'Bonnie', 'Brown', '666-111-1111', 'bonnie@gmail.com', '19 Green Street, Boston, MA', 'F')
 ;
 
-SELECT * FROM students;
+SELECT * FROM student;
 
 -- create table teachers
-CREATE TABLE IF NOT EXISTS teachers (
+CREATE TABLE IF NOT EXISTS teacher (
     teacher_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     gender CHAR(1) NOT NULL,
     first_name VARCHAR(20) NOT NULL,
@@ -55,10 +55,10 @@ CREATE TABLE IF NOT EXISTS teachers (
     wage DOUBLE(8 , 2 ),
     register_date DATE NOT NULL
 )  ENGINE=INNODB CHARSET=UTF8;
--- DESC teachers;
--- SHOW COLUMNS FROM teachers;
+-- DESC teacher;
+-- SHOW COLUMNS FROM teacher;
 
-INSERT teachers(teacher_id, gender, first_name, last_name, credits, wage, register_date) 
+INSERT teacher(teacher_id, gender, first_name, last_name, credits, wage, register_date) 
 VALUES(NULL, 'M', 'Adam', 'Smith', '99','20000.00','2006-09-04'),
 (NULL, 'M', 'Noah', 'Johnson', '89','15000.00','2016-09-04'),
 (NULL, 'F', 'Kathy', 'Williams', '97','19000.00','2008-09-04'),
@@ -67,7 +67,7 @@ VALUES(NULL, 'M', 'Adam', 'Smith', '99','20000.00','2006-09-04'),
 (NULL, 'F', 'Olivia', 'Wilson', '92','10020.00','2012-09-04')
 ;
 
-SELECT * FROM teachers;
+SELECT * FROM teacher;
 
 -- create table groupinfo
 CREATE TABLE IF NOT EXISTS groupinfo (
@@ -81,15 +81,15 @@ INSERT groupinfo(group_id, min_age_range, max_age_range) VALUES(NULL, 6, 60),
 (NULL, 12, NULL);
 
 -- create table classrooms
-CREATE TABLE IF NOT EXISTS classrooms (
+CREATE TABLE IF NOT EXISTS classroom (
     classroom_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     classroom_name VARCHAR(10)
 )  ENGINE=INNODB CHARSET=UTF8;
--- DESC classrooms;
--- SHOW COLUMNS FROM classrooms;
+-- DESC classroom;
+-- SHOW COLUMNS FROM classroom;
 
-INSERT classrooms(classroom_id, classroom_name) VALUES(NULL, 'CLASS1'),(NULL,'CLASS2');
--- SELECT * FROM classrooms;
+INSERT classroom(classroom_id, classroom_name) VALUES(NULL, 'CLASS1'),(NULL,'CLASS2');
+-- SELECT * FROM classroom;
 
 -- 1 classroom contains 3 groups at most
 CREATE TABLE IF NOT EXISTS classroom_group (
@@ -130,7 +130,7 @@ SELECT * FROM teacher_student;
 
 -- Hib, DTaP, Polio, HB, MMR, Varicella
 -- 1, 2, 3, 4, 5, 6
-CREATE TABLE IF NOT EXISTS vaccines (
+CREATE TABLE IF NOT EXISTS vaccine (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     total_dose INT UNSIGNED NOT NULL,
     valid_month INT UNSIGNED NOT NULL,
@@ -141,10 +141,10 @@ CREATE TABLE IF NOT EXISTS vaccines (
     description VARCHAR(50) NOT NULL,
     is_required_s_t CHAR(1) NOT NULL
 )  ENGINE=INNODB CHARSET=UTF8;
--- DESC vaccines;
--- SHOW COLUMNS FROM vaccines;
+-- DESC vaccine;
+-- SHOW COLUMNS FROM vaccine;
 
-INSERT vaccines(id, total_dose, valid_month, days_between_doses_1, days_between_doses_2, days_between_doses_3, name, description, is_required_s_t) 
+INSERT vaccine(id, total_dose, valid_month, days_between_doses_1, days_between_doses_2, days_between_doses_3, name, description, is_required_s_t) 
 VALUES(NULL, '2', '12', '15', NULL, NULL, 'Hib', 'Other details of vaccine', 'F'),
 (NULL, '4', '24', '17', '17', '25', 'DTaP', 'Other details of vaccine', 'F'), 
 (NULL, '3', '15', '20', '20', NULL, 'Polio', 'Other details of vaccine', 'F'), 
@@ -152,10 +152,10 @@ VALUES(NULL, '2', '12', '15', NULL, NULL, 'Hib', 'Other details of vaccine', 'F'
 (NULL, '1', '8', NULL, NULL, NULL, 'MMR', 'Other details of vaccine', 'T'),
 (NULL, '1', '6', NULL, NULL, NULL, 'Varicella', 'Other details of vaccine', 'T');
 
-SELECT * FROM vaccines;
+SELECT * FROM vaccine;
 
 -- create table records
-CREATE TABLE IF NOT EXISTS records (
+CREATE TABLE IF NOT EXISTS record (
     stu_id INT UNSIGNED PRIMARY KEY,
     dose_001 TINYINT UNSIGNED,
     date_001 DATE,
@@ -173,9 +173,9 @@ CREATE TABLE IF NOT EXISTS records (
     require_005 BOOLEAN NOT NULL,
     require_006 BOOLEAN NOT NULL
 )  ENGINE=INNODB CHARSET=UTF8;
--- DESC records;
--- SHOW COLUMNS FROM records;
+-- DESC record;
+-- SHOW COLUMNS FROM record;
 
-insert records(stu_id, dose_001, date_001, dose_002, date_002, dose_003, date_003, dose_004, date_004, dose_005, date_005, dose_006, date_006, require_004, require_005, require_006) 
+insert record(stu_id, dose_001, date_001, dose_002, date_002, dose_003, date_003, dose_004, date_004, dose_005, date_005, dose_006, date_006, require_004, require_005, require_006) 
 VALUES('1', '0', NULL, '1', '2019-08-06', '1', '2018-08-06', '2', '2017-08-05', '3', '2018-08-06', '2', '2019-08-05', '0', '1', '0');
-SELECT * FROM records;
+SELECT * FROM record;
