@@ -104,19 +104,19 @@ var ButtonInit = function () {
 
 <!-- get student vaccine detail page by student id-->
 var vaccineDetail = function (value) {
-    window.location.href = "http://localhost:9090/stuVaccine.html#" + value;
+    window.location.href = "http://localhost:9090/individual-vaccine.html#" + value;
 
 };
 
 
 <!--pass the id of student to back-end -->
-var deleteStu = function () {
+var deleteStu = function (value) {
     $.ajax({
-        url: "http:localhost:9090/deleteStu",
+        url: "http://localhost:9090/deleteStu",
         method: 'POST',
         contentType: "application/json;charset=utf-8",
         data: JSON.stringify({
-            "num": value
+            "studentId": value
         }),
         dataType: "JSON",
         success: function (result) {

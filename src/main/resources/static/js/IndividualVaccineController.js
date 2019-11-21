@@ -109,7 +109,7 @@ $(document).ready(function () {
                 }),//JSON.stringify()必须有,否则只会当做表单的格式提交
                 dataType: "JSON",
                 success: function (result) {
-                    // window.location.href = "localhost:9090/stuVaccine.html#"+id; //重定向到该页面
+                    // window.location.href = "localhost:9090/individual-vaccine.html#"+id; //重定向到该页面
                     alert(result.msg);
 
                     window.location.reload();
@@ -117,7 +117,7 @@ $(document).ready(function () {
                 },
                 error: function (err) {
                     alert("err");
-                    window.location.href = "localhost:9090/stuVaccine.html#"+id;
+                    window.location.href = "localhost:9090/individual-vaccine.html#"+id;
                 }
             });
 
@@ -143,7 +143,7 @@ $(document).ready(function () {
             }),//JSON.stringify()必须有,否则只会当做表单的格式提交
             dataType: "JSON",
             success: function (result) {
-                // window.location.href = "localhost:9090/stuVaccine.html#"+id; //重定向到该页面
+                // window.location.href = "localhost:9090/individual-vaccine.html#"+id; //重定向到该页面
                 alert(result.msg);
 
                 window.location.reload();
@@ -151,7 +151,7 @@ $(document).ready(function () {
             },
             error: function (err) {
                 alert("err");
-                window.location.href = "localhost:9090/stuVaccine.html#"+id;
+                window.location.href = "localhost:9090/individual-vaccine.html#"+id;
             }
         });
 
@@ -177,7 +177,7 @@ $(document).ready(function () {
             }),//JSON.stringify()必须有,否则只会当做表单的格式提交
             dataType: "JSON",
             success: function (result) {
-                // window.location.href = "localhost:9090/stuVaccine.html#"+id; //重定向到该页面
+                // window.location.href = "localhost:9090/individual-vaccine.html#"+id; //重定向到该页面
                 alert(result.msg);
 
                 window.location.reload();
@@ -185,7 +185,7 @@ $(document).ready(function () {
             },
             error: function (err) {
                 alert("err");
-                window.location.href = "localhost:9090/stuVaccine.html#"+id;
+                window.location.href = "localhost:9090/individual-vaccine.html#"+id;
             }
         });
 
@@ -213,7 +213,7 @@ $(document).ready(function () {
             }),//JSON.stringify()必须有,否则只会当做表单的格式提交
             dataType: "JSON",
             success: function (result) {
-                // window.location.href = "localhost:9090/stuVaccine.html#"+id; //重定向到该页面
+                // window.location.href = "localhost:9090/individual-vaccine.html#"+id; //重定向到该页面
                 alert(result.msg);
 
                 window.location.reload();
@@ -221,7 +221,7 @@ $(document).ready(function () {
             },
             error: function (err) {
                 alert("err");
-                window.location.href = "localhost:9090/stuVaccine.html#"+id;
+                window.location.href = "localhost:9090/individual-vaccine.html#"+id;
             }
         });
 
@@ -246,7 +246,7 @@ $(document).ready(function () {
             }),//JSON.stringify()必须有,否则只会当做表单的格式提交
             dataType: "JSON",
             success: function (result) {
-                // window.location.href = "localhost:9090/stuVaccine.html#"+id; //重定向到该页面
+                // window.location.href = "localhost:9090/individual-vaccine.html#"+id; //重定向到该页面
                 alert(result.msg);
 
                 window.location.reload();
@@ -254,7 +254,7 @@ $(document).ready(function () {
             },
             error: function (err) {
                 alert("err");
-                window.location.href = "localhost:9090/stuVaccine.html#"+id;
+                window.location.href = "localhost:9090/individual-vaccine.html#"+id;
             }
         });
 
@@ -280,7 +280,7 @@ $(document).ready(function () {
             }),//JSON.stringify()必须有,否则只会当做表单的格式提交
             dataType: "JSON",
             success: function (result) {
-                // window.location.href = "localhost:9090/stuVaccine.html#"+id; //重定向到该页面
+                // window.location.href = "localhost:9090/individual-vaccine.html#"+id; //重定向到该页面
                 alert(result.msg);
 
                 window.location.reload();
@@ -288,7 +288,7 @@ $(document).ready(function () {
             },
             error: function (err) {
                 alert("err");
-                window.location.href = "localhost:9090/stuVaccine.html#"+id;
+                window.location.href = "localhost:9090/individual-vaccine.html#"+id;
             }
         });
 
