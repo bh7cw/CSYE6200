@@ -1,10 +1,9 @@
 package edu.neu.csye6200.group1.module.service;
 
-import edu.neu.csye6200.group1.module.dao.FileUtil;
-import edu.neu.csye6200.group1.module.dao.ImmunizationRecord;
-import edu.neu.csye6200.group1.module.dao.Student;
-import edu.neu.csye6200.group1.module.dao.Teacher;
+import edu.neu.csye6200.group1.module.dao.*;
 import edu.neu.csye6200.group1.module.mapper.StudentsMapper;
+import edu.neu.csye6200.group1.module.mapper.TeacherMapper;
+import edu.neu.csye6200.group1.module.mapper.VaccineRecordMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +15,12 @@ public class CSVinputService {
 
     @Autowired
     StudentsMapper studentsMapper;
+
+    @Autowired
+    TeacherMapper teacherMapper;
+
+    @Autowired
+    VaccineRecordMapper vaccineRecordMapper;
 
     public void getStudent(String filename){
         FileUtil fileUtil = new FileUtil();
@@ -29,19 +34,50 @@ public class CSVinputService {
             if(filename.toLowerCase().contains(FileUtil.student)){
                 for(String csvStudent : list) {
                     Student student = new Student(csvStudent);
-                    students.add(student);
-                    studentsMapper.addStudent(student.getGender(),student.getFirstName(),student.getLastName(),student.getGpa(),
-                            student.getBirthDate(), student.getRegisterDate(),student.getParentFirstName(),student.getParentLastName(),
-                            student.getParentPhone(),student.getParentEmail(),student.getParentAddress(),student.getParentGender());
+                    Integer id = studentsMapper.findStuByName(student.getFirstName(),student.getLastName(),
+                            student.getParentFirstName(),student.getParentLastName());
+                    System.out.println(id);
+//                    students.add(student);
+                    if(id != null)
+                        studentsMapper.updateStudent(student.getGender(),student.getGpa(),
+                                student.getParentPhone(), student.getParentEmail(),student.getParentAddress(),
+                                student.getBirthDate(),student.getRegisterDate(),id);
+                    else
+                        studentsMapper.addStudent(student.getGender(),student.getFirstName(),student.getLastName(),student.getGpa(),
+                                student.getBirthDate(), student.getRegisterDate(),student.getParentFirstName(),student.getParentLastName(),
+                                student.getParentPhone(),student.getParentEmail(),student.getParentAddress(),student.getParentGender());
                 }
             }
             // to check if the csv file is teacher csv file
             else if(filename.toLowerCase().contains(FileUtil.teacher)){
-                for(String csvTeacher : list) teachers.add(new Teacher(csvTeacher));
+                for(String csvTeacher : list) {
+                    Teacher teacher = new Teacher(csvTeacher);
+                    Integer id = teacherMapper.findTeacherByName(teacher.getFirstName(),teacher.getLastName());
+                    if(id != null)
+                        teacherMapper.updateTeacher(teacher.getGender(),teacher.getCredits(),teacher.getWage(),
+                                teacher.getRegisterDate(),id);
+                    else
+                        teacherMapper.addTeacher(teacher.getGender(),teacher.getFirstName(),teacher.getLastName(),
+                                teacher.getCredits(),teacher.getWage(),teacher.getRegisterDate());
+                }
             }
             // to check if the csv file is immunization record file
             else if(filename.toLowerCase().contains(FileUtil.immunization)){
-                for(String csvVaccine : list) immunizationRecords.add(new ImmunizationRecord(csvVaccine));
+                for(String csvVaccine : list) {
+                    ImmunizationRecord immunizationRecord = new ImmunizationRecord(csvVaccine);
+                    Integer id = immunizationRecord.getStuID();
+                    if(studentsMapper.findStuById(id) != null) {
+                        if (vaccineRecordMapper.getStuVaccine(id) != null) continue;
+                        else{
+                            vaccineRecordMapper.updateAllVaccineRc(id,immunizationRecord.getDose001(),immunizationRecord.getDate001(),
+                                    immunizationRecord.getDose002(),immunizationRecord.getDate002(),immunizationRecord.getDose003(),
+                                    immunizationRecord.getDate003(),immunizationRecord.getDose004(),immunizationRecord.getDate004(),
+                                    immunizationRecord.getDose005(),immunizationRecord.getDate005(),immunizationRecord.getDose006(),
+                                    immunizationRecord.getDate006());
+                        }
+
+                    }
+                };
             }
 
 

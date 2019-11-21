@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <!--    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="lib/bootstrap/js/jquery-3.3.1.min.js"></script>
     <script rel="stylesheet" src="lib/bootstrap/js/bootstrap.js"></script>
+    <script src="js/EnrollPageController.js"></script>
     <link rel="icon"
           href="https://cdn4.iconfinder.com/data/icons/sun-11/50/1-512.png">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
@@ -78,10 +79,10 @@
                     <label><strong>Student Name</strong></label>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="First name" name="firstName">
+                            <input type="text" class="form-control" placeholder="First name" name="firstName" id="firstName">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Last name" name="lastName">
+                            <input type="text" class="form-control" placeholder="Last name" name="lastName" id="lastName">
                         </div>
                     </div>
                 </div>
@@ -89,23 +90,29 @@
                     <label><strong>Gender</strong></label>
                     <br>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                        <label class="form-check-label" for="inlineRadio1">male</label>
+                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="M">
+                        <label class="form-check-label" for="gender1">male</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                        <label class="form-check-label" for="inlineRadio2">female</label>
+                        <input class="form-check-input" type="radio" name="gender" id="gender2" value="F">
+                        <label class="form-check-label" for="gender2">female</label>
                     </div>
+                </div>
+
+                <div class="form-group text-left">
+                    <lable><Strong>Birth Date</Strong></lable>
+                    <br>
+                    <input type="date" class="form-control" id="birthDate">
                 </div>
 
                 <div class="form-group text-left">
                     <label><strong>Parent Name</strong></label>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="First name" name="firstName">
+                            <input type="text" class="form-control" placeholder="First name" name="firstName" id="parentFirstName">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Last name" name="lastName">
+                            <input type="text" class="form-control" placeholder="Last name" name="lastName" id="parentLastName">
                         </div>
                     </div>
                 </div>
@@ -114,32 +121,32 @@
                     <label><strong>Parent Gender</strong></label>
                     <br>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                        <label class="form-check-label" for="inlineRadio1">male</label>
+                        <input class="form-check-input" type="radio" name="parentGender" id="parentGender1" value="M">
+                        <label class="form-check-label" for="parentGender1">male</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                        <label class="form-check-label" for="inlineRadio2">female</label>
+                        <input class="form-check-input" type="radio" name="parentGender" id="parentGender2" value="F">
+                        <label class="form-check-label" for="parentGender2">female</label>
                     </div>
                 </div>
 
                 <div class="form-group text-left">
                     <label><strong>Address</strong></label>
-                    <input type="text" class="form-control" placeholder="Enter address">
+                    <input type="text" class="form-control" placeholder="Enter address" id="parentAddress">
                 </div>
                 <div class="form-group text-left">
                     <label><strong>Phone number</strong></label>
-                    <input type="number" class="form-control" placeholder="Enter your phone number">
+                    <input type="number" class="form-control" placeholder="Enter your phone number" id="parentPhone">
                 </div>
 
                 <div class="form-group text-left">
                     <label><strong>E-mail</strong></label>
-                    <input type="email" class="form-control" placeholder="Enter your e-mail">
+                    <input type="email" class="form-control" placeholder="Enter your e-mail" id="parentEmail" >
                 </div>
 
 
             </form>
-            <button class="btn btn-primary" onclick="submit()">Enroll Now!</button>
+            <button class="btn btn-primary" id="btn_submit">Enroll Now!</button>
         </div>
 
         <div class="card-footer text-muted">
@@ -148,6 +155,6 @@
     </div>
 
 </div>
-<script src="js/EnrollPageController.js"></script>
+
 </body>
 </html>
