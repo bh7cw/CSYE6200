@@ -30,12 +30,12 @@ public class Teacher extends AbstractPerson {
 
     }
 
-    public int getTeacherID() {
+    public int getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherID(int teacherID) {
-        this.teacherId = teacherID;
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
     }
 
     public int getCredits() {
@@ -57,7 +57,7 @@ public class Teacher extends AbstractPerson {
     @Override
     public String toString() {
         return "Teacher{" +
-                "teacherID=" + getTeacherID() +
+                "teacherId=" + getTeacherId() +
                 ", firstName=" + getFirstName() +
                 ", lastName=" + getLastName() +
                 ", gender=" + getGender() +
@@ -75,7 +75,7 @@ public class Teacher extends AbstractPerson {
      */
     @Override
     public String toCSVString() {
-        return getTeacherID() + "," +
+        return getTeacherId() + "," +
                 getFirstName() + "," +
                 getLastName() + "," +
                 getGender() + "," +

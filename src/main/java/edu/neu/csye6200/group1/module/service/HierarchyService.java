@@ -7,10 +7,7 @@ import edu.neu.csye6200.group1.module.mapper.HierarchyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @Author WayneQu
@@ -64,91 +61,82 @@ public class HierarchyService {
         int[] teacherStudentRatio=new int[]{4,5,6,8,12,15};
         int[] classroomTeacherRatio=new int[]{3,3,3,3,2,2};
         List<Student> allStudentList=hierarchyMapper.getAllStudentList();
-        List<Teacher> allTeacherList=hierarchyMapper.getAllTeacherList();
+        Queue<Teacher> allTeacherQueue=hierarchyMapper.getAllTeacherList();
         // divide students into studentArrayMap by age
-        ArrayList<Student>[] studentArrayMap=new ArrayList[6];
-        ArrayList<Teacher>[] teacherArrayMap=new ArrayList[6];
-        ArrayList<Integer>[] groupInfoArrayMap=new ArrayList[6];
+        Queue<Student>[] studentQueueMap=new LinkedList[6];
+        Queue<Teacher>[] teacherQueueMap=new LinkedList[6];
+        Queue<Integer>[] groupInfoQueueMap=new LinkedList[6];
         Calendar calendar = Calendar.getInstance();
         Date currentDate=calendar.getTime();
-        for (Student student : allStudentList){
-            int currMonth=calculateMonth(currentDate, student.getBirthDate());
-            if (currMonth>=6 && currMonth<=12){
-                if (studentArrayMap[0]==null){
-                    studentArrayMap[0]= new ArrayList<>();
-                }
-                studentArrayMap[0].add(student);
-            } else if (currMonth>=13 && currMonth<=24){
-                if (studentArrayMap[1]==null){
-                    studentArrayMap[1]= new ArrayList<>();
-                }
-                studentArrayMap[1].add(student);
-            } else if (currMonth>=25 && currMonth<=35){
-                if (studentArrayMap[2]==null){
-                    studentArrayMap[2]= new ArrayList<>();
-                }
-                studentArrayMap[2].add(student);
-            } else if (currMonth>=36 && currMonth<=47){
-                if (studentArrayMap[3]==null){
-                    studentArrayMap[3]= new ArrayList<>();
-                }
-                studentArrayMap[3].add(student);
-            } else if (currMonth>=48 && currMonth<=59){
-                if (studentArrayMap[4]==null){
-                    studentArrayMap[4]= new ArrayList<>();
-                }
-                studentArrayMap[4].add(student);
-            } else if (currMonth>=60) {
-                if (studentArrayMap[5] == null) {
-                    studentArrayMap[5] = new ArrayList<>();
-                }
-                studentArrayMap[5].add(student);
+        for (int i=0;i<6;i++){
+            studentQueueMap[i]=new LinkedList<>();
+            teacherQueueMap[i]=new LinkedList<>();
+            groupInfoQueueMap[i]=new LinkedList<>();
+        }
+        for (Student student : allStudentList) {
+            int currMonth = calculateMonth(currentDate, student.getBirthDate());
+            if (currMonth >= 6 && currMonth <= 12) {
+                studentQueueMap[0].offer(student);
+            } else if (currMonth >= 13 && currMonth <= 24) {
+                studentQueueMap[1].offer(student);
+            } else if (currMonth >= 25 && currMonth <= 35) {
+                studentQueueMap[2].offer(student);
+            } else if (currMonth >= 36 && currMonth <= 47) {
+                studentQueueMap[3].offer(student);
+            } else if (currMonth >= 48 && currMonth <= 59) {
+                studentQueueMap[4].offer(student);
+            } else if (currMonth >= 60) {
+                studentQueueMap[5].offer(student);
             }
-            int[][] countArrayMap=new int[6][3];
-            for (int i=0;i<6;i++){
-                // Num of students each age
-                countArrayMap[i][0]=studentArrayMap[i].size();
-                // Num of teachers each age
-                countArrayMap[i][1]=(int)Math.ceil(((double)countArrayMap[i][0])/((double)teacherStudentRatio[i]));
-                // Num of classrooms each age
-                countArrayMap[i][2]=(int)Math.ceil(((double)countArrayMap[i][1])/((double)classroomTeacherRatio[i]));
-            }
-            // Generate Teacher-Student relation
-            int teacherIndex=0;
-            for (int i=0;i<6;i++){
-                teacherArrayMap[i]=new ArrayList<>();
-                List<Student> studentOfSomeAgeList=studentArrayMap[i];
-                for (int j=0;j<countArrayMap[i][1];j++){
-                    Teacher currTeacher=allTeacherList.get(teacherIndex++);
-                    teacherArrayMap[i].add(currTeacher);
-                    for (int k=j*teacherStudentRatio[i];k<Math.min((j+1)*teacherStudentRatio[i], countArrayMap[i][0]);k++) {
-                        Student currStudent=studentOfSomeAgeList.get(k);
-                        hierarchyMapper.insertStudentTeacherTable(currStudent.getStudentId(), currTeacher.getTeacherID());
-                    }
+        }
+        int[][] countArrayMap=new int[6][3];
+        for (int i=0;i<6;i++){
+            // Num of students each age
+            countArrayMap[i][0]=studentQueueMap[i].size();
+            // Num of teachers each age
+            countArrayMap[i][1]=(int)Math.ceil(((double)countArrayMap[i][0])/((double)teacherStudentRatio[i]));
+            // Num of classrooms each age
+            countArrayMap[i][2]=(int)Math.ceil(((double)countArrayMap[i][1])/((double)classroomTeacherRatio[i]));
+        }
+        // Generate Teacher-Student relation
+        for (int i=0;i<6;i++){
+            Queue<Student> studentOfSomeAgeQueue=studentQueueMap[i];
+            int studentCount=0;
+            Teacher currTeacher=null;
+            while (!(studentOfSomeAgeQueue.isEmpty())){
+                if (studentCount==0){
+                    currTeacher=allTeacherQueue.poll();
+                    teacherQueueMap[i].offer(currTeacher);
                 }
+                int currTeacherId=currTeacher.getTeacherId();
+                Student currStudent=studentOfSomeAgeQueue.poll();
+                studentCount=((studentCount+1)%teacherStudentRatio[i]);
+                int currStudentId=currStudent.getStudentId();
+                hierarchyMapper.insertTeacherStudentTable(currTeacherId, currStudentId);
             }
-            // Generate GroupInfo-Teacher relation
-            for (int i=0;i<6;i++){
-                List<Teacher> teacherOfSomeAgeList=teacherArrayMap[i];
-                groupInfoArrayMap[i]=new ArrayList<>();
-                int groupInfoId=(i+1)*10;
-                for (int j=0;j<teacherOfSomeAgeList.size();j++){
-                    Teacher currTeacher=teacherOfSomeAgeList.get(j);
-                    groupInfoArrayMap[i].add(groupInfoId);
-                    hierarchyMapper.insertTeacherGroupInfoTable(groupInfoId++, currTeacher.getTeacherID());
-                }
+        }
+        // Generate GroupInfo-Teacher relation
+        for (int i=0;i<6;i++){
+            Queue<Teacher> teacherOfSomeAgeQueue=teacherQueueMap[i];
+            int groupInfoId=(i+1)*10+1;
+            while (!(teacherOfSomeAgeQueue.isEmpty())){
+                Teacher currTeacher=teacherOfSomeAgeQueue.poll();
+                groupInfoQueueMap[i].offer(groupInfoId);
+                hierarchyMapper.insertGroupInfoTeacherTable(groupInfoId++, currTeacher.getTeacherId());
             }
-            // Generate Classroom-GroupInfo relation
-            for (int i=0;i<6;i++){
-                List<Integer> groupInfoIdOfSomeAgeList=groupInfoArrayMap[i];
-                int classroomId=(i+1)*1000;
-                for (int j=0;j<groupInfoIdOfSomeAgeList.size();j++){
-                    if (j%classroomTeacherRatio[i]==0){
-                        classroomId+=100;
-                    }
-                    int currGroupInfoId=groupInfoIdOfSomeAgeList.get(j);
-                    hierarchyMapper.insertGroupClassroomTable(classroomId, currGroupInfoId);
+        }
+        // Generate Classroom-GroupInfo relation
+        for (int i=0;i<6;i++){
+            Queue<Integer> groupInfoIdOfSomeAgeQueue=groupInfoQueueMap[i];
+            int classroomId=(i+1)*1000;
+            int groupCount=0;
+            while (!(groupInfoIdOfSomeAgeQueue.isEmpty())){
+                if (groupCount==0){
+                    classroomId+=100;
                 }
+                int currGroupInfoId=groupInfoIdOfSomeAgeQueue.poll();
+                groupCount=(groupCount+1)%classroomTeacherRatio[i];
+                hierarchyMapper.insertClassroomGroupTable(classroomId, currGroupInfoId);
             }
         }
     }

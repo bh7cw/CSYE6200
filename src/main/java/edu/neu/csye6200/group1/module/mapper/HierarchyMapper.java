@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -17,13 +18,13 @@ import java.util.List;
 @Mapper
 public interface HierarchyMapper {
     @Insert("insert into teacher_student (teacher_id, student_id) value(#{teacherId},#{studentId})")
-    void insertStudentTeacherTable(int teacherId, int studentId);
+    void insertTeacherStudentTable(int teacherId, int studentId);
 
     @Insert("insert into group_info_teacher (group_info_id, teacher_id) value(#{groupInfoId}, #{teacherId})")
-    void insertTeacherGroupInfoTable(int groupInfoId, int teacherID);
+    void insertGroupInfoTeacherTable(int groupInfoId, int teacherId);
 
     @Insert("insert into classroom_group_info (classroom_id, group_info_id) value(#{classroomId}, #{groupInfoId})")
-    void insertGroupClassroomTable(int classroomId, int groupInfoId);
+    void insertClassroomGroupTable(int classroomId, int groupInfoId);
 
     @Select("select distinct classroom_id from classroom")
     List<Integer> getClassroomIdList();
@@ -40,10 +41,6 @@ public interface HierarchyMapper {
     @Select("select student_id from teacher_student where teacher_id=#{teacherId}")
     List<Integer> getStudentIdListByTeacherId(int teacherId);
 
-
-    @Select("select teacherId from teacher where teacher_id=#{teacherId}")
-    String getTeacherFullNameById(int teacherId);
-
     @Select("select * from student where student_id=#{studentId}")
     Student getStudentByStudentId(int studentId);
 
@@ -51,14 +48,14 @@ public interface HierarchyMapper {
     List<Student> getAllStudentList();
 
     @Select("select * from teacher")
-    ArrayList<Teacher> getAllTeacherList();
+    LinkedList<Teacher> getAllTeacherList();
 
-    @Delete("delete * from classroom_group_info")
+    @Delete("delete from classroom_group_info")
     void clearClassroomGroupInfoTable();
 
-    @Delete("delete * from group_info_teacher")
+    @Delete("delete from group_info_teacher")
     void clearGroupInfoTeacherTable();
 
-    @Delete("delete * from teacher_student")
+    @Delete("delete from teacher_student")
     void clearTeacherStudentTable();
 }
