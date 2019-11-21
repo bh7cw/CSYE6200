@@ -17,7 +17,7 @@ public class Teacher extends AbstractPerson {
      */
     public Teacher(String CSVString){
         String[] fileds = CSVString.split(",");
-        if(fileds.length != 6) throw new IllegalArgumentException("The input CSV String for teacher must has 9 attributes: \n" +
+        if(fileds.length != 6) throw new IllegalArgumentException("The input CSV String for teacher must has 6 attributes: \n" +
                 "teacher firstname + teacher lastname + teacher gender + teacher credits +\n" +
                 " eacher wage + teacher registerDate");
 

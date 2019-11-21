@@ -1,13 +1,15 @@
 package edu.neu.csye6200.group1.module.service;
 
-import edu.neu.csye6200.group1.module.dao.*;
+import edu.neu.csye6200.group1.module.dao.FileUtil;
+import edu.neu.csye6200.group1.module.dao.ImmunizationRecord;
+import edu.neu.csye6200.group1.module.dao.Student;
+import edu.neu.csye6200.group1.module.dao.Teacher;
 import edu.neu.csye6200.group1.module.mapper.StudentsMapper;
 import edu.neu.csye6200.group1.module.mapper.TeacherMapper;
 import edu.neu.csye6200.group1.module.mapper.VaccineRecordMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,9 +26,6 @@ public class CSVinputService {
 
     public void getStudent(String filename){
         FileUtil fileUtil = new FileUtil();
-        List<Student> students = new ArrayList<>();
-        List<Teacher> teachers = new ArrayList<>();
-        List<ImmunizationRecord> immunizationRecords = new ArrayList<>();
 
             List<String> list = fileUtil.readTextfile(filename);
 
@@ -67,16 +66,22 @@ public class CSVinputService {
                     ImmunizationRecord immunizationRecord = new ImmunizationRecord(csvVaccine);
                     Integer id = immunizationRecord.getStuID();
                     if(studentsMapper.findStuById(id) != null) {
-                        if (vaccineRecordMapper.getStuVaccine(id) != null) continue;
-                        else{
+                        if (vaccineRecordMapper.getStuVaccine(id) != null)
                             vaccineRecordMapper.updateAllVaccineRc(id,immunizationRecord.getDose001(),immunizationRecord.getDate001(),
                                     immunizationRecord.getDose002(),immunizationRecord.getDate002(),immunizationRecord.getDose003(),
                                     immunizationRecord.getDate003(),immunizationRecord.getDose004(),immunizationRecord.getDate004(),
                                     immunizationRecord.getDose005(),immunizationRecord.getDate005(),immunizationRecord.getDose006(),
-                                    immunizationRecord.getDate006());
-                        }
-
+                                    immunizationRecord.getDate006(),immunizationRecord.isRequire004(),immunizationRecord.isRequire005(),
+                                    immunizationRecord.isRequire006());
+                        else
+                            vaccineRecordMapper.addrecord(id,immunizationRecord.getDose001(),immunizationRecord.getDate001(),
+                                    immunizationRecord.getDose002(),immunizationRecord.getDate002(),immunizationRecord.getDose003(),
+                                    immunizationRecord.getDate003(),immunizationRecord.getDose004(),immunizationRecord.getDate004(),
+                                    immunizationRecord.getDose005(),immunizationRecord.getDate005(),immunizationRecord.getDose006(),
+                                    immunizationRecord.getDate006(), immunizationRecord.isRequire004(),immunizationRecord.isRequire005(),
+                                    immunizationRecord.isRequire006());
                     }
+                    else continue;
                 };
             }
 
