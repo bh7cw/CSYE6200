@@ -58,7 +58,7 @@ public class ImmunizationRecord {
      */
     public ImmunizationRecord(String CSVString){
         String[] fields = CSVString.split(",");
-        if(fields.length != 19) throw new IllegalArgumentException("The attributes for input Immunization record must be 19: " +
+        if(fields.length != 16) throw new IllegalArgumentException("The attributes for input Immunization record must be 16: " +
                 "Student Id + the current dose # of Hib + last injection date for Hib + Is ST required to inject Hib\n" +
                 " + the current dose # of DTaP + last injection date for DTaP + Is ST required to inject DTaP\n" +
                 " + the current dose # of Polio + last injection date for Polio + Is ST required to inject Polio\n" +
@@ -69,22 +69,22 @@ public class ImmunizationRecord {
         this.setStuID(FileUtil.strToInt(fields[0]));
         this.setDose001(FileUtil.strToInt(fields[1]));
         this.setDate001(FileUtil.strToDate(fields[2]));
-        this.setRequire001(FileUtil.strToBoolean(fields[3]));
-        this.setDose002(FileUtil.strToInt(fields[4]));
-        this.setDate002(FileUtil.strToDate(fields[5]));
-        this.setRequire002(FileUtil.strToBoolean(fields[6]));
-        this.setDose003(FileUtil.strToInt(fields[7]));
-        this.setDate003(FileUtil.strToDate(fields[8]));
-        this.setRequire003(FileUtil.strToBoolean(fields[9]));
-        this.setDose004(FileUtil.strToInt(fields[10]));
-        this.setDate004(FileUtil.strToDate(fields[11]));
-        this.setRequire004(FileUtil.strToBoolean(fields[12]));
-        this.setDose005(FileUtil.strToInt(fields[13]));
-        this.setDate005(FileUtil.strToDate(fields[14]));
-        this.setRequire005(FileUtil.strToBoolean(fields[15]));
-        this.setDose006(FileUtil.strToInt(fields[16]));
-        this.setDate006(FileUtil.strToDate(fields[17]));
-        this.setRequire006(FileUtil.strToBoolean(fields[18]));
+        //this.setRequire001(FileUtil.strToBoolean(fields[3]));
+        this.setDose002(FileUtil.strToInt(fields[3]));
+        this.setDate002(FileUtil.strToDate(fields[4]));
+        //this.setRequire002(FileUtil.strToBoolean(fields[6]));
+        this.setDose003(FileUtil.strToInt(fields[5]));
+        this.setDate003(FileUtil.strToDate(fields[6]));
+        //this.setRequire003(FileUtil.strToBoolean(fields[9]));
+        this.setDose004(FileUtil.strToInt(fields[7]));
+        this.setDate004(FileUtil.strToDate(fields[8]));
+        this.setRequire004(FileUtil.strToBoolean(fields[9]));
+        this.setDose005(FileUtil.strToInt(fields[10]));
+        this.setDate005(FileUtil.strToDate(fields[11]));
+        this.setRequire005(FileUtil.strToBoolean(fields[12]));
+        this.setDose006(FileUtil.strToInt(fields[13]));
+        this.setDate006(FileUtil.strToDate(fields[14]));
+        this.setRequire006(FileUtil.strToBoolean(fields[15]));
 
     }
 
