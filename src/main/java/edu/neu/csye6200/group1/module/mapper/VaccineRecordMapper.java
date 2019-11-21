@@ -1,10 +1,7 @@
 package edu.neu.csye6200.group1.module.mapper;
 
 import edu.neu.csye6200.group1.module.dao.ImmunizationRecord;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 
 import java.util.ArrayList;
@@ -33,6 +30,16 @@ public interface VaccineRecordMapper {
 
     @Select("select * from record where stu_id = #{id} ")
     ImmunizationRecord getStuVaccine(int id);
+
+    @Update("update record set dose_001 = #{dose001}, date_001 = #{date001}, dose_002 = #{dose002}, " +
+            "date_002 = #{date002}, dose_003 = #{dose003}, date_003 = #{date003}, dose_004 = #{dose004}, " +
+            "date_004 = #{date004}, dose_005 = #{dose005}, date_005 = #{date005}, dose_006 = #{dose006}, date_006 = #{date006}")
+    void updateAllVaccineRc(@Param("id") int id, @Param("dose001") int dose001, @Param("date001") Date date001,
+                            @Param("dose002") int dose002, @Param("date002") Date date002,
+                            @Param("dose003") int dose003, @Param("date003") Date date003,
+                            @Param("dose004") int dose004, @Param("date004") Date date004,
+                            @Param("dose005") int dose005, @Param("date005") Date date005,
+                            @Param("dose006") int dose006, @Param("dose006") Date date006);
 
     /**
      * for 001 vaccine
@@ -144,7 +151,7 @@ public interface VaccineRecordMapper {
 
 
     /**
-     * for 005 vaccine
+     * for 006 vaccine
      * @param id
      * @param date
      */

@@ -1,9 +1,7 @@
 package edu.neu.csye6200.group1.module.mapper;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+import edu.neu.csye6200.group1.module.dao.Student;
+import org.apache.ibatis.annotations.*;
 
 import java.util.Date;
 
@@ -20,4 +18,21 @@ public interface StudentsMapper {
 
     @Delete("delete from student where student_id = #{studentId} ")
     void deleteStudent(@Param("studentId") int studentId);
+
+    @Select("select student_id from student where first_name = #{stuFirstName} and last_name = #{stuLastName} and " +
+            "parent_first_name = #{parFirstName} and parent_last_name = #{parLastName} ")
+    Integer findStuByName(@Param("stuFirstName") String stuFirstName, @Param("stuLastName") String stuLastName,
+                          @Param("parFirstName") String parFirstName, @Param("parLastName") String parLastName);
+
+    @Select("select * from student where student_id = #{studentId}")
+    Student findStuById(@Param("studentId") int studentId);
+
+    @Update("update student set gender = #{gender}, gpa = #{gpa}, parent_phone = #{parentPhone} " +
+            ", parent_email = #{parentEmail}, parent_address = #{parentAddress}, birth_date = #{birthDate} " +
+            ", register_date = #{registerDate} where student_id = #{studentId}")
+    void updateStudent(@Param("gender") String gender, @Param("gpa") double gpa,
+                       @Param("parentPhone") String parentPhone, @Param("parentEmail") String parentEmail,
+                       @Param("parentAddress") String parentAddress,@Param("birthDate") Date birthDate,
+                       @Param("registerDate") Date registerDate, @Param("studentId") int studentId);
+
 }
