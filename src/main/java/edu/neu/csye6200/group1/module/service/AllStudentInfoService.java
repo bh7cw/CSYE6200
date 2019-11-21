@@ -27,13 +27,11 @@ public class AllStudentInfoService {
         Calendar calendar = Calendar.getInstance();
         Date currentDate=calendar.getTime();
         int currYear=calendar.get(Calendar.YEAR);
-        ArrayList<ExtStudent> allStudentInfoList=allStudentInfoMapper.getAllStudentInfo(currYear);
-        System.out.println("HERE");
-
-         System.out.print(allStudentInfoList);
+        ArrayList<ExtStudent> allStudentInfoList=allStudentInfoMapper.getAllStudentInfoByRegisterDate(currYear);
         for (ExtStudent s:allStudentInfoList){
             s.setMonth(calculateMonth(currentDate, s.getBirthDate()));
             s.setParentFullName(s.getParentFirstName()+" "+s.getParentLastName());
+            s.setStudentFullName(s.getFirstName()+" "+s.getLastName());
         }
         return allStudentInfoList;
     }

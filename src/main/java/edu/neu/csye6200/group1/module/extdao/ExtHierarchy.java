@@ -2,8 +2,8 @@ package edu.neu.csye6200.group1.module.extdao;
 
 public class ExtHierarchy {
     private int classroomId;
-    private int groupId;
-    private int studentAge;
+    private int groupInfoId;
+    private int studentMonth;
     private String teacherFullName;
     private String studentFullName;
 
@@ -15,20 +15,20 @@ public class ExtHierarchy {
         this.classroomId = classroomId;
     }
 
-    public int getGroupId() {
-        return groupId;
+    public int getGroupInfoId() {
+        return groupInfoId;
     }
 
-    public void setGroupId(int groupId) {
-        this.groupId = groupId;
+    public void setGroupInfoId(int groupInfoId) {
+        this.groupInfoId = groupInfoId;
     }
 
     public int getStudentAge() {
-        return studentAge;
+        return studentMonth;
     }
 
     public void setStudentAge(int studentAge) {
-        this.studentAge = studentAge;
+        this.studentMonth = studentAge;
     }
 
     public String getTeacherFullName() {
@@ -51,13 +51,10 @@ public class ExtHierarchy {
     public String toString() {
         return "ExtHierarchy{" +
                 "classroomId=" + classroomId +
-                ", groupId=" + groupId +
-                ", studentAge=" + studentAge +
+                ", groupId=" + groupInfoId +
+                ", studentAge=" + studentMonth +
                 ", teacherFullName='" + teacherFullName + '\'' +
                 ", studentFullName='" + studentFullName + '\'' +
                 '}';
-    }
-
-    public void setGroupInfoId(int groupInfoId) {
     }
 }

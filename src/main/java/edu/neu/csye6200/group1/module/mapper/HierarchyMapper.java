@@ -1,10 +1,13 @@
 package edu.neu.csye6200.group1.module.mapper;
 
-import edu.neu.csye6200.group1.module.dao.Classroom;
-import edu.neu.csye6200.group1.module.dao.GroupInfo;
 import edu.neu.csye6200.group1.module.dao.Student;
+import edu.neu.csye6200.group1.module.dao.Teacher;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,15 +16,49 @@ import java.util.List;
  */
 @Mapper
 public interface HierarchyMapper {
-    @Select("select * from classroom")
-    List<Classroom> getClassroomList();
+    @Insert("insert into teacher_student (teacher_id, student_id) value(#{teacherId},#{studentId})")
+    void insertStudentTeacherTable(int teacherId, int studentId);
 
-    @Select("select * from groupInfo where classroomId=#{classroomId}")
-    List<GroupInfo> getGroupInfoList(int classroomId);
+    @Insert("insert into group_info_teacher (group_info_id, teacher_id) value(#{groupInfoId}, #{teacherId})")
+    void insertTeacherGroupInfoTable(int groupInfoId, int teacherID);
 
-    @Select("select teacherId from teacher where teacherId=#{teacherId}")
+    @Insert("insert into classroom_group_info (classroom_id, group_info_id) value(#{classroomId}, #{groupInfoId})")
+    void insertGroupClassroomTable(int classroomId, int groupInfoId);
+
+    @Select("select distinct classroom_id from classroom")
+    List<Integer> getClassroomIdList();
+
+    @Select("select group_info_id from classroom_group_info where classroom_id=#{classroomId}")
+    List<Integer> getGroupInfoIdListByClassroomId(int classroomId);
+
+    @Select("select teacher_id from group_info_teacher where group_info_id=#{groupInfoId}")
+    int getTeacherIdByGroupInfoId(int groupInfoId);
+
+    @Select("select * from teacher where teacher_id=#{teacherId}")
+    Teacher getTeacherByTeacherId(int teacherId);
+
+    @Select("select student_id from teacher_student where teacher_id=#{teacherId}")
+    List<Integer> getStudentIdListByTeacherId(int teacherId);
+
+
+    @Select("select teacherId from teacher where teacher_id=#{teacherId}")
     String getTeacherFullNameById(int teacherId);
 
-    @Select("select * from student where studentId=#{studentId}")
-    List<Student> getStudentListById(int teacherId);
+    @Select("select * from student where student_id=#{studentId}")
+    Student getStudentByStudentId(int studentId);
+
+    @Select("select * from student")
+    List<Student> getAllStudentList();
+
+    @Select("select * from teacher")
+    ArrayList<Teacher> getAllTeacherList();
+
+    @Delete("delete * from classroom_group_info")
+    void clearClassroomGroupInfoTable();
+
+    @Delete("delete * from group_info_teacher")
+    void clearGroupInfoTeacherTable();
+
+    @Delete("delete * from teacher_student")
+    void clearTeacherStudentTable();
 }

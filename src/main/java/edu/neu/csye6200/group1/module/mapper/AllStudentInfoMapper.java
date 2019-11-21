@@ -13,5 +13,5 @@ import java.util.ArrayList;
 @Mapper
 public interface AllStudentInfoMapper {
     @Select("select * from student where year(register_date) = #{currentYear}")
-    ArrayList<ExtStudent> getAllStudentInfo(int currentYear);
+    ArrayList<ExtStudent> getAllStudentInfoByRegisterDate(int currentYear);
 }

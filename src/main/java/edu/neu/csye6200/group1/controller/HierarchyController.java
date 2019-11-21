@@ -15,6 +15,10 @@ public class HierarchyController {
     @Autowired
     HierarchyService hierarchyService;
 
+    /**
+     * for homepage hierarchy display, return ExtHierarchy objects which have attributes of classroomId, groupInfoId, studentMonth, teacherFullName, studentFullName
+     * @return Map<String,Object>
+     */
     @ResponseBody
     @GetMapping("/showHierarchy")
     public Map getHierarchy(){
@@ -23,5 +27,14 @@ public class HierarchyController {
         map.put("total",extHierarchyList.size());
         map.put("rows",extHierarchyList);
         return map;
+    }
+
+    /**
+     * for create new hierarchy, should be used every time after student table is updated
+     */
+    @ResponseBody
+    @GetMapping("/createHierarchy")
+    public void createHierarchy(){
+        hierarchyService.createHierarchy();
     }
 }
