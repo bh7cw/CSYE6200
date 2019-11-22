@@ -57,17 +57,18 @@ public class HierarchyService {
         hierarchyMapper.clearTeacherStudentTable();
         hierarchyMapper.clearGroupInfoTeacherTable();
         hierarchyMapper.clearClassroomGroupInfoTable();
+        Calendar calendar = Calendar.getInstance();
+        Date currentDate=calendar.getTime();
+        int currentYear=calendar.get(Calendar.YEAR);
         // Generate new relation tables
         int[] teacherStudentRatio=new int[]{4,5,6,8,12,15};
         int[] classroomTeacherRatio=new int[]{3,3,3,3,2,2};
-        List<Student> allStudentList=hierarchyMapper.getAllStudentList();
-        Queue<Teacher> allTeacherQueue=hierarchyMapper.getAllTeacherList();
+        List<Student> allStudentList=hierarchyMapper.getAllStudentList(currentYear);
+        Queue<Teacher> allTeacherQueue=hierarchyMapper.getAllTeacherList(currentYear);
         // divide students into studentArrayMap by age
         Queue<Student>[] studentQueueMap=new LinkedList[6];
         Queue<Teacher>[] teacherQueueMap=new LinkedList[6];
         Queue<Integer>[] groupInfoQueueMap=new LinkedList[6];
-        Calendar calendar = Calendar.getInstance();
-        Date currentDate=calendar.getTime();
         for (int i=0;i<6;i++){
             studentQueueMap[i]=new LinkedList<>();
             teacherQueueMap[i]=new LinkedList<>();

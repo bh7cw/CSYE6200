@@ -44,11 +44,11 @@ public interface HierarchyMapper {
     @Select("select * from student where student_id=#{studentId}")
     Student getStudentByStudentId(int studentId);
 
-    @Select("select * from student")
-    List<Student> getAllStudentList();
+    @Select("select * from student where year(register_date)=#{currentYear}")
+    List<Student> getAllStudentList(int currentYear);
 
-    @Select("select * from teacher")
-    LinkedList<Teacher> getAllTeacherList();
+    @Select("select * from teacher where year(register_date)=#{currentYear}")
+    LinkedList<Teacher> getAllTeacherList(int currentYear);
 
     @Delete("delete from classroom_group_info")
     void clearClassroomGroupInfoTable();
