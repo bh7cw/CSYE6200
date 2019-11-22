@@ -325,7 +325,6 @@ div.fixed-table-scroll-inner {
     height: 200px
 }
 
-div.fixed-table-scroll-outer {
     top: 0;
     left: 0;
     visibility: hidden;
