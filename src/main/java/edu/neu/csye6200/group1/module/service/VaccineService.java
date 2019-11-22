@@ -10,11 +10,16 @@ import java.util.*;
 @Service
 public class VaccineService {
     @Autowired
-    VaccineRecordMapper testMapper;
+    VaccineRecordMapper vaccineRecordMapper;
 
     public ArrayList<ImmunizationRecord> getAllRecord(){
-        ArrayList<ImmunizationRecord> record=testMapper.getAllRecord();
-//        System.out.println(Arrays.asList(record));
-        return record;
+        Calendar calendar = Calendar.getInstance();
+        int currYear=calendar.get(Calendar.YEAR);
+        ArrayList<ImmunizationRecord> resultList=new ArrayList<>();
+        ArrayList<Integer> validStudentIdList=vaccineRecordMapper.getValidStudentIdRecord(currYear);
+        for (int studentId : validStudentIdList){
+            resultList.add(vaccineRecordMapper.getImmunizationRecordByStudentId(studentId));
+        }
+        return resultList;
     }
 }

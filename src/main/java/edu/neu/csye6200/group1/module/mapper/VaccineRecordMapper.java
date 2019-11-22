@@ -184,6 +184,9 @@ public interface VaccineRecordMapper {
     @Update("update record set dose_006 = #{dose} where stu_id = #{id}")
     void updateDose006(int id, int dose);
 
+    @Select("select distinct student_id from student where year(register_date)=#{currentYear}")
+    ArrayList<Integer> getValidStudentIdRecord(int currentYear);
 
-
+    @Select("select * from record where student_id=#{studentId}")
+    ImmunizationRecord getImmunizationRecordByStudentId(int studentId);
 }
