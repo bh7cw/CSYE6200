@@ -3,6 +3,7 @@ package edu.neu.csye6200.group1.controller;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import edu.neu.csye6200.group1.module.dao.Student;
+import edu.neu.csye6200.group1.module.service.HierarchyService;
 import edu.neu.csye6200.group1.module.service.StudentRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,8 @@ import java.util.Map;
 public class StudentRegisterController {
     @Autowired
     StudentRegisterService studentRegisterService;
+    @Autowired
+    HierarchyService hierarchyService;
 
 
     @ResponseBody
@@ -31,6 +34,7 @@ public class StudentRegisterController {
         Student student = new Gson().fromJson(requestString, new TypeToken<Student>(){}.getType());
         Map<String,Object> map = new HashMap<>();
         studentRegisterService.register(student,map);
+        hierarchyService.createHierarchy();
         return map;
     }
 }

@@ -14,7 +14,11 @@ public class AllTeacherInfoService {
     AllTeacherInfoMapper allTeacherInfoMapper;
 
     public ArrayList<ExtTeacher> getAllTeacher(){
-        ArrayList<ExtTeacher> teachers = allTeacherInfoMapper.allTeacherInfo();
+
+        Calendar calendar = Calendar.getInstance();
+//        Date currentDate=calendar.getTime();
+        int currYear=calendar.get(Calendar.YEAR);
+        ArrayList<ExtTeacher> teachers = allTeacherInfoMapper.allTeacherInfo(currYear);
         for(ExtTeacher t: teachers){
             t.setTeacherFullName(t.getFirstName()+" "+t.getLastName());
         }

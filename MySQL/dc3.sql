@@ -1,5 +1,9 @@
+
+
+
+
 -- create database
-CREATE DATABASE IF NOT EXISTS daycare;
+
 -- SHOW DATABASES;
 -- SHOW SCHEMAS;
 -- SHOW CREATE DATABASE daycare;
@@ -88,7 +92,7 @@ CREATE TABLE IF NOT EXISTS vaccine (
     days_between_doses_1 INT UNSIGNED,
     days_between_doses_2 INT UNSIGNED,
     days_between_doses_3 INT UNSIGNED,
-    name VARCHAR(20) NOT NULL, 
+    name VARCHAR(20) NOT NULL,
     description VARCHAR(50) NOT NULL,
     is_required_s_t CHAR(1) NOT NULL
 )  ENGINE=INNODB CHARSET=UTF8;
@@ -100,7 +104,7 @@ CREATE TABLE IF NOT EXISTS record (
     stu_id INT UNSIGNED PRIMARY KEY,
     dose_001 TINYINT UNSIGNED,
     date_001 DATE,
-    dose_002 TINYINT UNSIGNED,
+    dose_002 TINYINT UNSIGNED,CREATE DATABASE IF NOT EXISTS daycare;
     date_002 DATE,
     dose_003 TINYINT UNSIGNED,
     date_003 DATE,

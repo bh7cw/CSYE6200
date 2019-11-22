@@ -132,7 +132,7 @@ VALUES(NULL, '2', '12', '15', NULL, NULL, 'Hib', 'Other details of vaccine', 'F'
 
 -- SELECT * FROM vaccine;
 
-insert record(student_id, dose_001, date_001, dose_002, date_002, dose_003, date_003, dose_004, date_004, dose_005, date_005, dose_006, date_006, require_004, require_005, require_006) 
+insert record(stu_id, dose_001, date_001, dose_002, date_002, dose_003, date_003, dose_004, date_004, dose_005, date_005, dose_006, date_006, require_004, require_005, require_006)
 VALUES('1', '0', NULL, '1', '2019-08-06', '1', '2018-08-06', '2', '2017-08-05', '3', '2018-08-06', '2', '2019-08-05', '0', '1', '0'),
 ('2', '0', NULL, '1', '2019-08-06', '1', '2017-08-06', '1', '2017-08-05', '2', '2018-08-06', '2', '2019-08-05', '0', '1', '0'),
 ('3', '0', NULL, '1', '2019-08-06', '1', '2018-08-06', '2', '2017-08-05', '1', '2018-08-06', '1', '2019-08-05', '0', '1', '0'),

@@ -3,7 +3,6 @@ package edu.neu.csye6200.group1.controller;
 
 import edu.neu.csye6200.group1.module.dao.UploadModel;
 import edu.neu.csye6200.group1.module.service.CSVinputService;
-import edu.neu.csye6200.group1.module.service.HierarchyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +33,6 @@ public class RestUploadController {
 
     @Autowired
     private CSVinputService csVinputService;
-
-    @Autowired
-    private HierarchyService hierarchyService;
 
     //Save the uploaded file to this folder
     private static String UPLOADED_FOLDER = "files";
@@ -129,7 +125,6 @@ public class RestUploadController {
 //            FileUtil.addFileNames(UPLOADED_FOLDER + file.getOriginalFilename());
 //            logger.error(file.getOriginalFilename());
             csVinputService.getStudent(UPLOADED_FOLDER + file.getOriginalFilename());
-            hierarchyService.createHierarchy();
 
 
         }
