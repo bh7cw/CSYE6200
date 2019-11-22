@@ -9,6 +9,10 @@ $(document).ready(function () {
 
     });
 
+    $("#btnDownload").click(function (event) {
+       download("src/main/resources/static/files/studentCSV.txt", "studentCSV.txt", "text/plain");
+    });
+
 });
 
 function fire_ajax_submit() {

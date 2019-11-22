@@ -13,20 +13,22 @@ public interface TeacherMapper {
 
     // add teacher
     @Insert("insert into teacher(gender,first_name,last_name,credits,wage,register_date) " +
-            "values(#{gender},#{firstName},#{lastName},#{credits},#{wage},#{registerDate}）")
-    void addTeacher(String gender, String firstName, String lastName, int credits, double wage, Date registerDate);
+            "values(#{gender},#{firstName},#{lastName},#{credits},#{wage},#{registerDate})")
+    void addTeacher(@Param("gender") String gender, @Param("firstName") String firstName,
+                    @Param("lastName") String lastName, @Param("credits") int credits,
+                    @Param("wage") double wage, @Param("registerDate") Date registerDate);
 
-    @Delete("delete teacher where teacher = #{teacher_id}")
+    @Delete("delete from teacher where teacher_id = #{teacherId} ")
     void deleteTeacher(@Param("teacherId") int teacherId);
 
-    @Select("select teacher_id from teacher where first_name = #{firstName} and last_name = #{lastName}")
+    @Select("select teacher_id from teacher where first_name = #{firstName} and last_name = #{lastName} ")
     Integer findTeacherByName(@Param("firstName") String firstName, @Param("lastName") String lastName);
 
     @Select("select * from teacher where teacherId = #{teacherId}")
     Teacher findTeacherById(int teacherId);
 
     @Update("update teacher set gender = #{gender}, credits = #{credits}, wage = #{wage}, " +
-            ", register_date = #{registerDate} where teacherId = #{teacherId}")
+            "register_date = #{registerDate} where teacher_id = #{teacherId}")
     void updateTeacher(@Param("gender") String gender, @Param("credits") int credits,
                        @Param("wage") double wage,@Param("registerDate") Date registerDate, @Param("teacherId") int teacherId);
 }
