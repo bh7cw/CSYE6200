@@ -25,29 +25,26 @@ public class HierarchyService {
 
     public ArrayList<ExtHierarchy> getHierarchy(){
         List<ExtHierarchy> extHierarchyList=new ArrayList<>();
-        List<Integer> classroomList=hierarchyMapper.getClassroomIdList();
         Calendar calendar = Calendar.getInstance();
         Date currentDate=calendar.getTime();
-        for (int classroomId: classroomList){
-            List<Integer> groupInfoList=hierarchyMapper.getGroupInfoIdListByClassroomId(classroomId);
-            for (int groupInfoId:groupInfoList){
-                int teacherId=hierarchyMapper.getTeacherIdByGroupInfoId(groupInfoId);
-                Teacher teacher=hierarchyMapper.getTeacherByTeacherId(teacherId);
-                String teacherFullName=teacher.getFirstName()+" "+teacher.getLastName();
-                List<Integer> studentIdList=hierarchyMapper.getStudentIdListByTeacherId(teacherId);
-                for (int studentId:studentIdList){
-                    Student student=hierarchyMapper.getStudentByStudentId(studentId);
-                    String studentFullName=student.getFirstName()+" "+student.getLastName();
-                    int month=calculateMonth(currentDate, student.getBirthDate());
-                    ExtHierarchy extHierarchy=new ExtHierarchy();
-                    extHierarchy.setClassroomId(classroomId);
-                    extHierarchy.setGroupInfoId(groupInfoId);
-                    extHierarchy.setTeacherFullName(teacherFullName);
-                    extHierarchy.setStudentFullName(studentFullName);
-                    extHierarchy.setStudentAge(month);
-                    extHierarchyList.add(extHierarchy);
-                }
-            }
+        int currentYear=calendar.get(Calendar.YEAR);
+        List<Student> allStudentList=hierarchyMapper.getAllStudentList(currentYear);
+        for (Student student:allStudentList){
+            ExtHierarchy extHierarchy=new ExtHierarchy();
+            String studentFullName=student.getFirstName()+" "+student.getLastName();
+            int studentId=student.getStudentId();
+            int month=calculateMonth(currentDate, student.getBirthDate());
+            extHierarchy.setStudentAge(month);
+            extHierarchy.setStudentFullName(studentFullName);
+            int teacherId=hierarchyMapper.getTeacherIdByStudentId(studentId);
+            Teacher teacher=hierarchyMapper.getTeacherByTeacherId(teacherId);
+            String teacherFullName=teacher.getFirstName()+" "+teacher.getLastName();
+            extHierarchy.setTeacherFullName(teacherFullName);
+            int groupInfoId=hierarchyMapper.getGroupInfoIdByTeacherId(teacherId);
+            extHierarchy.setGroupInfoId(groupInfoId);
+            int classroomId=hierarchyMapper.getClassroomIdByGroupInfoId(groupInfoId);
+            extHierarchy.setClassroomId(classroomId);
+            extHierarchyList.add(extHierarchy);
         }
         return (ArrayList<ExtHierarchy>) extHierarchyList;
     }

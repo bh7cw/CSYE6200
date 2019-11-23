@@ -26,6 +26,15 @@ public interface HierarchyMapper {
     @Insert("insert into classroom_group_info (classroom_id, group_info_id) value(#{classroomId}, #{groupInfoId})")
     void insertClassroomGroupTable(int classroomId, int groupInfoId);
 
+    @Select("select teacher_id from teacher_student where student_id=#{studentId}")
+    int getTeacherIdByStudentId(int studentId);
+
+    @Select("select group_info_id from group_info_teacher where teacher_id=#{teacherId}")
+    int getGroupInfoIdByTeacherId(int teacherId);
+
+    @Select("select classroom_id from classroom_group_info where group_info_id=#{groupInfoId}")
+    int getClassroomIdByGroupInfoId(int groupInfoId);
+
     @Select("select distinct classroom_id from classroom")
     List<Integer> getClassroomIdList();
 
@@ -58,4 +67,6 @@ public interface HierarchyMapper {
 
     @Delete("delete from teacher_student")
     void clearTeacherStudentTable();
+
+
 }
