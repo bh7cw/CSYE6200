@@ -96,3 +96,25 @@ var ButtonInit = function () {
 
     return oInit;
 };
+
+$(document).ready(function(){
+    $("#vac").click(function (event) {
+
+            window.location.href = "http://localhost:9090/vaccines-information.html";
+
+    });
+
+    $("#stu").click(function (event) {
+
+        window.location.href = "http://localhost:9090/students-information.html";
+
+    });
+
+    $("#tea").click(function (event) {
+
+        window.location.href = "http://localhost:9090/teachers-information.html";
+
+    });
+
+
+});
