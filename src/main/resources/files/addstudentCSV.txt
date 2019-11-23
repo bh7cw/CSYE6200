@@ -1,0 +1,8 @@
+Linda,Li,F,82,2019-03-28,2019-09-04,Yuan,Li,F,111-411-1111,yuanli@gmail.com,19 Blue Street
+Jane,Zhang,F,92,2019-01-18,2019-09-04,Bruce,Zhang,M,111-511-1111,brucez@gmail.com,39 Blue Street
+Blank,Que,M,90,2015-10-28,2019-09-04,Frank,Que,M,111-411-1111,que@gmail.com,109 Blue Street
+Mark,Yu,M,80,2015-09-18,2019-09-04,Stefen,Yu,M,111-511-1111,yustefen@gmail.com,309 Blue Street
+Anna,Zang,F,79,2015-08-28,2019-09-04,Amanda,Zang,F,111-611-1111,amanda@gmail.com,19 White Street
+Rose,Bai,F,77,2015-07-18,2019-09-04,Lia,Bai,F,111-711-1111,liabai@gmail.com,39 White Street
+Mary,Lian,F,66,2015-06-28,2019-09-04,Patricia,Lian,F,111-811-1111,patricia@gmail.com,109 White Street
+Jack,Chen,M,88,2015-05-18,2018-09-04,Chandler,Chen,M,111-911-1111,chandler@gmail.com,309 White Street
