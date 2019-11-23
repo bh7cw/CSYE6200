@@ -7,6 +7,21 @@ $(function () {
     var oButtonInit = new ButtonInit();
     oButtonInit.Init();
 
+
+    $.ajax({
+        url: 'http://localhost:9090/getCountNumRecord',
+        method: 'get',
+        dataType: "json",//数据类型可以为 text xml json  script  jsonp
+        success: function (result) {
+            $("#student").text(result.studentNum);
+            $("#teacher").text(result.teacherNum);
+            $("#vaccine").text(result.recordNum);
+        },
+        error: function (e) {
+
+        }
+    })
+
 });
 
 var TableInit = function () {
