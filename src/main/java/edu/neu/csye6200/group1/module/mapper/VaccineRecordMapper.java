@@ -187,6 +187,6 @@ public interface VaccineRecordMapper {
     @Select("select distinct student_id from student where year(register_date)=#{currentYear}")
     ArrayList<Integer> getValidStudentIdRecord(int currentYear);
 
-    @Select("select * from record where student_id=#{studentId}")
+    @Select("select * from record where stu_id=#{studentId}")
     ImmunizationRecord getImmunizationRecordByStudentId(int studentId);
 }

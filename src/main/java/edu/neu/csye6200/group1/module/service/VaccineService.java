@@ -18,6 +18,7 @@ public class VaccineService {
         ArrayList<ImmunizationRecord> resultList=new ArrayList<>();
         ArrayList<Integer> validStudentIdList=vaccineRecordMapper.getValidStudentIdRecord(currYear);
         for (int studentId : validStudentIdList){
+            if(vaccineRecordMapper.getImmunizationRecordByStudentId(studentId)!=null)
             resultList.add(vaccineRecordMapper.getImmunizationRecordByStudentId(studentId));
         }
         return resultList;
