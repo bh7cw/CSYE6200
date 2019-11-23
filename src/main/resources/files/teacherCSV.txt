@@ -1,0 +1,10 @@
+Adam,Smith,F,99,20000,2019-09-04
+Noah,Johnson,M,89,15000,2019-08-04
+Kathy,Williams,F,97,19000,2019-07-04
+Emma,Brown,F,69,10300,2019-06-04
+Logan,Davis,M,79,10010,2019-05-04
+Olivia,Wilson,F,92,10020,2019-04-04
+Emy,Thompson,F,82,10060,2019-03-04
+Penny,White,F,72,10120,2019-02-04
+Monica,Roberts,F,99,11120,2019-01-04
+Leah,Wang,F,59,13120,2018-09-04
