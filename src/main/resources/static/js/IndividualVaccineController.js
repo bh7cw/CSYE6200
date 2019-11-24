@@ -76,6 +76,9 @@ $(function () {
 
 
 
+        },
+        error:function(err){
+            alert("Please import students vaccine record CSV file first")
         }
     })
 })
