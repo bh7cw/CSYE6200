@@ -1,6 +1,6 @@
-package edu.neu.csye6200.group1.model.mapper;
+package edu.neu.csye6200.group1.module.mapper;
 
-import edu.neu.csye6200.group1.model.extdao.ExtStudent;
+import edu.neu.csye6200.group1.module.extdao.ExtStudent;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import java.util.ArrayList;
