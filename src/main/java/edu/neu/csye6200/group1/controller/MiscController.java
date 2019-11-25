@@ -1,6 +1,6 @@
 package edu.neu.csye6200.group1.controller;
 
-import edu.neu.csye6200.group1.model.service.MiscService;
+import edu.neu.csye6200.group1.module.service.MiscService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
