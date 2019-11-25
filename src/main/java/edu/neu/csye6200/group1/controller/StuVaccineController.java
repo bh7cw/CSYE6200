@@ -1,11 +1,9 @@
 package edu.neu.csye6200.group1.controller;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import edu.neu.csye6200.group1.module.dao.ImmunizationRecord;
-import edu.neu.csye6200.group1.module.dao.Student;
-import edu.neu.csye6200.group1.module.service.StuVaccineService;
+import edu.neu.csye6200.group1.model.dao.ImmunizationRecord;
+import edu.neu.csye6200.group1.model.service.StuVaccineService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;

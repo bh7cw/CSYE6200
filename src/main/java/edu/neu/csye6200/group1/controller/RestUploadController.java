@@ -1,9 +1,9 @@
 package edu.neu.csye6200.group1.controller;
 
 
-import edu.neu.csye6200.group1.module.dao.UploadModel;
-import edu.neu.csye6200.group1.module.service.CSVinputService;
-import edu.neu.csye6200.group1.module.service.HierarchyService;
+import edu.neu.csye6200.group1.model.dao.UploadModel;
+import edu.neu.csye6200.group1.model.service.CSVinputService;
+import edu.neu.csye6200.group1.model.service.HierarchyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
