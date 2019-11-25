@@ -48,20 +48,20 @@ public class ImmunizationRecord {
 
     /**
      * csv input format:
-     *  Student Id + the current dose # of Hib + last injection date for Hib + Is ST required to inject Hib
-     *  + the current dose # of DTaP + last injection date for DTaP + Is ST required to inject DTaP
-     *  + the current dose # of Polio + last injection date for Polio + Is ST required to inject Polio
+     *  Student Id + the current dose # of Hib + last injection date for Hib
+     *  + the current dose # of DTaP + last injection date for DTaP
+     *  + the current dose # of Polio + last injection date for Polio
      *  + the current dose # of HB + last injection date for HB + Is ST required to inject HB
      *  + the current dose # of MMR + last injection date for MMR + Is ST required to inject MMR
      *  + the current dose # of Varicella + last injection date for Varicella + Is ST required to inject Varicella
-     * @param CSVString an input csv string from FileUtil to create a new immunization record with 19 attributes
+     * @param CSVString an input csv string from FileUtil to create a new immunization record with 16 attributes
      */
     public ImmunizationRecord(String CSVString){
         String[] fields = CSVString.split(",");
         if(fields.length != 16) throw new IllegalArgumentException("The attributes for input Immunization record must be 16: " +
-                "Student Id + the current dose # of Hib + last injection date for Hib + Is ST required to inject Hib\n" +
-                " + the current dose # of DTaP + last injection date for DTaP + Is ST required to inject DTaP\n" +
-                " + the current dose # of Polio + last injection date for Polio + Is ST required to inject Polio\n" +
+                "Student Id + the current dose # of Hib + last injection date for Hib\n" +
+                " + the current dose # of DTaP + last injection date for DTaP\n" +
+                " + the current dose # of Polio + last injection date for Polio\n" +
                 " + the current dose # of HB + last injection date for HB + Is ST required to inject HB\n" +
                 " + the current dose # of MMR + last injection date for MMR + Is ST required to inject MMR\n" +
                 " + the current dose # of Varicella + last injection date for Varicella + Is ST required to inject Varicella");
@@ -242,9 +242,9 @@ public class ImmunizationRecord {
 
     /**
      * csv output format:
-     *  Student Id + the current dose # of Hib + last injection date for Hib + Is ST required to inject Hib
-     *  + the current dose # of DTaP + last injection date for DTaP + Is ST required to inject DTaP
-     *  + the current dose # of Polio + last injection date for Polio + Is ST required to inject Polio
+     *  Student Id + the current dose # of Hib + last injection date for Hib
+     *  + the current dose # of DTaP + last injection date for DTaP
+     *  + the current dose # of Polio + last injection date for Polio
      *  + the current dose # of HB + last injection date for HB + Is ST required to inject HB
      *  + the current dose # of MMR + last injection date for MMR + Is ST required to inject MMR
      *  + the current dose # of Varicella + last injection date for Varicella + Is ST required to inject Varicella
@@ -252,9 +252,9 @@ public class ImmunizationRecord {
      */
     public String toCSVString(){
         return this.getStuID() + "," +
-                this.getDose001() + "," + FileUtil.dateToString(this.getDate001()) + "," + this.isRequire001() + "," + //Data for Hib Vaccine record
-                this.getDose002() + "," + FileUtil.dateToString(this.getDate002()) + "," + this.isRequire002() + "," + //Data for DTaP Vaccine record
-                this.getDose003() + "," + FileUtil.dateToString(this.getDate003()) + "," + this.isRequire003() + "," + //Data for Polio Vaccine record
+                this.getDose001() + "," + FileUtil.dateToString(this.getDate001()) + "," + //Data for Hib Vaccine record
+                this.getDose002() + "," + FileUtil.dateToString(this.getDate002()) + "," + //Data for DTaP Vaccine record
+                this.getDose003() + "," + FileUtil.dateToString(this.getDate003()) + "," + //Data for Polio Vaccine record
                 this.getDose004() + "," + FileUtil.dateToString(this.getDate004()) + "," + this.isRequire004() + "," + //Data for HB Vaccine record
                 this.getDose005() + "," + FileUtil.dateToString(this.getDate005()) + "," + this.isRequire005() + "," + //Data for MMR Vaccine record
                 this.getDose006() + "," + FileUtil.dateToString(this.getDate006()) + "," + this.isRequire006();        //Data for Varicella Vaccine record

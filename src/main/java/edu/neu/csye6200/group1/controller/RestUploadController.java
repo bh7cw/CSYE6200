@@ -125,9 +125,7 @@ public class RestUploadController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
             Files.write(path, bytes);
-//            FileUtil.addFileNames(UPLOADED_FOLDER + file.getOriginalFilename());
-//            logger.error(file.getOriginalFilename());
-            csVinputService.getStudent(UPLOADED_FOLDER + file.getOriginalFilename());
+            csVinputService.injectCSV(UPLOADED_FOLDER + file.getOriginalFilename());
             hierarchyService.createHierarchy();
 
         }

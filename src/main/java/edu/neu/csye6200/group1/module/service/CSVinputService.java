@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+/**
+ * The Service for csv file input
+ */
 @Service
 public class CSVinputService {
 
@@ -25,7 +27,11 @@ public class CSVinputService {
     @Autowired
     VaccineRecordMapper vaccineRecordMapper;
 
-    public void getStudent(String filename){
+    /**
+     * create objects based on the input csv file
+     * @param filename the file injected
+     */
+    public void injectCSV(String filename){
         FileUtil fileUtil = new FileUtil();
 
             List<String> list = fileUtil.readTextfile(filename);
